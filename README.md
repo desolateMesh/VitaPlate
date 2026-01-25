@@ -13,7 +13,7 @@ VitaPlate is a nutrition and fitness tracking app that helps you reach your heal
 ## Contact
 
 **Developer**: Jason Rochau  
-**Email**: jrochau@gmail.com
+**Email**: jrochau@mail.com
 
 ---
 
