@@ -385,7 +385,7 @@
             flex-wrap: nowrap;  /* Prevent wrapping */
             gap: 2rem;
             padding: 2rem 2rem;
-            overflow-x: auto;
+            overflow-x: scroll;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: thin;
@@ -415,6 +415,7 @@
 
         .screenshot-item {
             flex: 0 0 auto;
+            flex-shrink: 0;
             scroll-snap-align: center;
             text-align: center;
         }
