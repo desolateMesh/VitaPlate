@@ -376,11 +376,13 @@
         .screenshots-wrapper {
             position: relative;
             width: 100%;
-            overflow: hidden;
+            overflow-x: auto;  /* Changed from hidden to auto */
+            overflow-y: hidden;
         }
 
         .screenshots-row {
             display: flex;
+            flex-wrap: nowrap;  /* Prevent wrapping */
             gap: 2rem;
             padding: 2rem 2rem;
             overflow-x: auto;
@@ -389,6 +391,8 @@
             scrollbar-width: thin;
             scrollbar-color: var(--teal) var(--gray-200);
             cursor: grab;
+            width: max-content;  /* Allow container to grow with content */
+            min-width: 100%;
         }
 
         .screenshots-row:active {
