@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitaPlate - Smart Nutrition & Fitness Tracking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal-dark: #1a4e4e;
+            --teal: #2d7a7a;
+            --teal-light: #3d9a9a;
+            --green: #7cba37;
+            --green-light: #9ed45a;
+            --orange: #f39237;
+            --orange-light: #ffb066;
+            --cream: #faf9f6;
+            --white: #ffffff;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-600: #666666;
+            --gray-800: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--cream);
+            color: var(--gray-800);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(250, 249, 246, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.75rem 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .nav-logo span {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--teal-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(45, 122, 122, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse at center, rgba(124, 186, 55, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(243, 146, 55, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            color: var(--teal-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--green) 0%, var(--orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45, 122, 122, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(45, 122, 122, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            color: var(--teal-dark);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid var(--teal);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--teal);
+            color: var(--white);
+        }
+
+        .hero-phone {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone-frame {
+            position: relative;
+            width: 280px;
+            height: 580px;
+            background: var(--gray-800);
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 
+                0 50px 100px rgba(0,0,0,0.15),
+                0 20px 40px rgba(0,0,0,0.1),
+                inset 0 0 0 2px rgba(255,255,255,0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 32px;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 25px;
+            background: var(--gray-800);
+            border-radius: 20px;
+            z-index: 10;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+            color: var(--white);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--teal-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--cream);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            border-color: var(--teal-light);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .feature-icon.teal { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); }
+        .feature-icon.green { background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%); }
+        .feature-icon.orange { background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%); }
+
+        .feature-card h3 {
+            font-size: 1.35rem;
+            color: var(--teal-dark);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        /* Screenshots Section */
+        .screenshots {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+            overflow: hidden;
+        }
+
+        .screenshots-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .screenshots-row {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 2rem 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .screenshots-row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .screenshot-item {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            text-align: center;
+        }
+
+        .screenshot-phone {
+            width: 220px;
+            height: 460px;
+            background: var(--gray-800);
+            border-radius: 32px;
+            padding: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-item:hover .screenshot-phone {
+            transform: scale(1.05);
+        }
+
+        .screenshot-phone img {
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .screenshot-label {
+            margin-top: 1.25rem;
+            font-weight: 600;
+            color: var(--teal-dark);
+            font-size: 1rem;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 6rem 2rem;
+            background: var(--teal-dark);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .how-it-works::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .how-it-works .section-header {
+            position: relative;
+            z-index: 1;
+        }
+
+        .how-it-works .section-tag {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .how-it-works h2 {
+            color: var(--white);
+        }
+
+        .how-it-works .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .steps {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--green) 0%, var(--orange) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .step h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .step p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 2rem;
+            background: var(--cream);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--teal-dark);
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            color: var(--gray-600);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .store-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .store-badge {
+            height: 55px;
+            transition: transform 0.2s;
+        }
+
+        .store-badge:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-800);
+            color: var(--white);
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .footer-logo img {
+            height: 40px;
+        }
+
+        .footer-logo span {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-copy {
+            width: 100%;
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .phone-frame {
+                width: 240px;
+                height: 500px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .phone-frame {
+                width: 200px;
+                height: 420px;
+            }
+
+            .screenshot-phone {
+                width: 180px;
+                height: 380px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">
+                <img src="images/logo.png" alt="VitaPlate Logo">
+                <span>VitaPlate</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+            </ul>
+            <a href="#download" class="nav-cta">Download</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Nutrition & Fitness, <span>Simplified</span></h1>
+                <p>Personalized meal plans, smart calorie tracking, and workout logging — all in one beautiful app designed to help you reach your health goals.</p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.9 17.39c-.26-.8-.63-1.49-1.01-2.1.36-.8.51-1.66.44-2.57-.02-.32-.08-.62-.16-.91a5.14 5.14 0 00-2.11-2.89c-.32-.22-.66-.4-1.01-.56.06-.35.08-.71.06-1.08a4.8 4.8 0 00-.82-2.43c-.42-.6-.96-1.1-1.59-1.5A4.8 4.8 0 009.85 2.5c-.96 0-1.88.27-2.67.77-.79.5-1.43 1.2-1.85 2.03-.28.54-.46 1.13-.54 1.74a6.1 6.1 0 00-.06.99c-.01.32.02.63.08.94a5.14 5.14 0 00-2.27 2.9c-.23.7-.32 1.44-.27 2.19.05.73.24 1.44.56 2.09-.38.61-.75 1.3-1.01 2.1-.19.57-.29 1.17-.29 1.78 0 1.24.39 2.37 1.04 3.23.65.86 1.54 1.46 2.53 1.74.65.18 1.34.25 2.05.2.65-.05 1.27-.2 1.84-.45.57.25 1.19.4 1.84.45.71.05 1.4-.02 2.05-.2.99-.28 1.88-.88 2.53-1.74.65-.86 1.04-1.99 1.04-3.23 0-.61-.1-1.21-.29-1.78z"/></svg>
+                        Get on Play Store
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="hero-phone">
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <img src="images/home-screen.png" alt="VitaPlate Home Screen">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <span class="section-tag">Features</span>
+            <h2>Everything You Need to Succeed</h2>
+            <p>VitaPlate combines intelligent meal planning with comprehensive tracking to make healthy eating effortless.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon teal">🍽️</div>
+                <h3>Smart Meal Plans</h3>
+                <p>Get personalized 7-day meal plans tailored to your calorie goals, dietary restrictions, and food preferences. Automatic adjustments based on your progress.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon green">🔄</div>
+                <h3>Easy Meal Swaps</h3>
+                <p>Don't like a meal suggestion? Swap it instantly with smart alternatives that match your nutritional targets. Each option shows a compatibility score.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon orange">📊</div>
+                <h3>Macro Tracking</h3>
+                <p>Track your protein, carbs, fats, and fiber with beautiful visual progress bars. Stay on target with real-time updates throughout the day.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon teal">🥗</div>
+                <h3>Recipe Database</h3>
+                <p>Access hundreds of nutritious recipes with full ingredient lists, cooking instructions, and detailed macro breakdowns per serving.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon green">💪</div>
+                <h3>Workout Logging</h3>
+                <p>Log your workouts and see how exercise impacts your daily calorie budget. Track cardio, strength training, and more.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon orange">⚙️</div>
+                <h3>Dietary Restrictions</h3>
+                <p>Set your allergies and dietary restrictions once. VitaPlate automatically filters out recipes containing gluten, dairy, nuts, and more.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots" id="screenshots">
+        <div class="screenshots-container">
+            <div class="section-header">
+                <span class="section-tag">App Preview</span>
+                <h2>See VitaPlate in Action</h2>
+                <p>A beautiful, intuitive interface designed to make nutrition tracking a joy.</p>
+            </div>
+            <div class="screenshots-row">
+                <div class="screenshot-item">
+                    <div class="screenshot-phone">
+                        <img src="images/home-screen.png" alt="Home Dashboard">
+                    </div>
+                    <p class="screenshot-label">Home Dashboard</p>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-phone">
+                        <img src="images/meal-plan.png" alt="Meal Plan">
+                    </div>
+                    <p class="screenshot-label">Weekly Meal Plan</p>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-phone">
+                        <img src="images/meal-swap.png" alt="Meal Swap">
+                    </div>
+                    <p class="screenshot-label">Smart Meal Swap</p>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-phone">
+                        <img src="images/food-log.png" alt="Food Log">
+                    </div>
+                    <p class="screenshot-label">Food Log</p>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-phone">
+                        <img src="images/macros.png" alt="Macro Tracking">
+                    </div>
+                    <p class="screenshot-label">Macro Tracking</p>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-phone">
+                        <img src="images/profile.png" alt="Profile Settings">
+                    </div>
+                    <p class="screenshot-label">Profile & Goals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-header">
+            <span class="section-tag">Getting Started</span>
+            <h2>How VitaPlate Works</h2>
+            <p>Start your health journey in three simple steps.</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Set Your Goals</h3>
+                <p>Enter your profile details, choose your fitness goal (cut, maintain, or bulk), and set any dietary restrictions.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Get Your Plan</h3>
+                <p>VitaPlate generates a personalized 7-day meal plan with balanced nutrition tailored to your exact calorie needs.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Track & Achieve</h3>
+                <p>Log your meals and workouts, swap meals you don't like, and watch your progress as you crush your goals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="download">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Nutrition?</h2>
+            <p>Download VitaPlate today and take the first step toward a healthier, more balanced lifestyle.</p>
+            <div class="store-badges">
+                <a href="#" title="Get it on Google Play">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play Store" class="store-badge">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="VitaPlate">
+                <span>VitaPlate</span>
+            </div>
+            <ul class="footer-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="mailto:support@vitaplate.app">Contact</a></li>
+            </ul>
+            <p class="footer-copy">© 2026 VitaPlate. All rights reserved. Made with 💚 for your health.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
