@@ -234,8 +234,7 @@
 
         .phone-frame {
             position: relative;
-            width: 280px;
-            height: 580px;
+            width: 300px;
             background: var(--gray-800);
             border-radius: 40px;
             padding: 12px;
@@ -253,7 +252,6 @@
 
         .phone-screen {
             width: 100%;
-            height: 100%;
             border-radius: 32px;
             overflow: hidden;
             background: var(--white);
@@ -261,9 +259,7 @@
 
         .phone-screen img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
+            height: auto;
             display: block;
         }
 
@@ -272,8 +268,8 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 25px;
+            width: 100px;
+            height: 22px;
             background: var(--gray-800);
             border-radius: 20px;
             z-index: 10;
@@ -428,19 +424,6 @@
             transition: transform 0.3s ease;
         }
 
-        .screenshot-phone::before {
-            content: '';
-            position: absolute;
-            top: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 20px;
-            background: var(--gray-800);
-            border-radius: 10px;
-            z-index: 10;
-        }
-
         .screenshot-item:hover .screenshot-phone {
             transform: scale(1.05);
         }
@@ -451,7 +434,6 @@
             overflow: hidden;
             background: var(--white);
         }
-
 
         .screenshot-phone-inner img {
             width: 100%;
@@ -685,8 +667,7 @@
             }
 
             .phone-frame {
-                width: 240px;
-                height: 500px;
+                width: 260px;
             }
 
             .features-grid {
@@ -700,13 +681,11 @@
             }
 
             .phone-frame {
-                width: 200px;
-                height: 420px;
+                width: 220px;
             }
 
             .screenshot-phone {
-                width: 200px;
-                height: 420px;
+                width: 180px;
             }
 
             .footer-content {
@@ -835,18 +814,18 @@
                     <div class="screenshot-item">
                         <div class="screenshot-phone">
                             <div class="screenshot-phone-inner">
-                                <img src="images/meal-swap-start.png" alt="Meal Swap">
+                                <img src="images/meal-swap-start.png" alt="Meal Swap Start">
                             </div>
                         </div>
-                        <p class="screenshot-label">Smart Meal Swap Start</p>
+                        <p class="screenshot-label">Meal Swap Start</p>
                     </div>
                     <div class="screenshot-item">
                         <div class="screenshot-phone">
                             <div class="screenshot-phone-inner">
-                                <img src="images/meal-swap-selected.png" alt="Swap Confirmed">
+                                <img src="images/meal-swap-selected.png" alt="Meal Selected">
                             </div>
                         </div>
-                        <p class="screenshot-label">Meal Option Chosen</p>
+                        <p class="screenshot-label">Meal Selected</p>
                     </div>
                     <div class="screenshot-item">
                         <div class="screenshot-phone">
@@ -854,7 +833,7 @@
                                 <img src="images/meal-swap-confirm.png" alt="Swap Confirmed">
                             </div>
                         </div>
-                        <p class="screenshot-label">Meal Option Chosen</p>
+                        <p class="screenshot-label">Swap Confirmed</p>
                     </div>
                     <div class="screenshot-item">
                         <div class="screenshot-phone">
