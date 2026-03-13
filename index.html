@@ -3,23 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VitaPlate - Smart Nutrition & Fitness Tracking</title>
-    <meta name="description" content="Personalized meal plans, smart calorie tracking, and workout logging — all in one beautiful app designed to help you reach your health goals.">
-    
-    <!-- Open Graph / LinkedIn -->
+    <title>VitaPlate - Smart Nutrition & Fitness Tracking App</title>
+    <meta name="description" content="VitaPlate is a free nutrition and fitness tracking app for Android. Get personalized 7-day meal plans, smart calorie tracking, macro logging, workout tracking, and recipe recommendations — all in one app.">
+    <meta name="keywords" content="nutrition tracking app, calorie counter, meal planner, macro tracker, fitness tracker, diet app, healthy eating app, workout logger, meal planning, android nutrition app, vitaplate">
+    <meta name="author" content="VitaPlate">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vitaplate.app/">
+ 
+    <!-- Open Graph / LinkedIn / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://desolatemesh.github.io/">
-    <meta property="og:title" content="VitaPlate - Smart Nutrition & Fitness Tracking">
-    <meta property="og:description" content="Personalized meal plans, smart calorie tracking, and workout logging — all in one beautiful app designed to help you reach your health goals.">
-    <meta property="og:image" content="https://desolatemesh.github.io/images/home-screen.png">
+    <meta property="og:url" content="https://vitaplate.app/">
+    <meta property="og:title" content="VitaPlate - Smart Nutrition & Fitness Tracking App">
+    <meta property="og:description" content="Personalized meal plans, smart calorie tracking, macro logging, and workout tracking — all in one free Android app designed to help you reach your health goals.">
+    <meta property="og:image" content="https://vitaplate.app/images/home-screen.png">
     <meta property="og:site_name" content="VitaPlate">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="VitaPlate - Smart Nutrition & Fitness Tracking">
-    <meta name="twitter:description" content="Personalized meal plans, smart calorie tracking, and workout logging — all in one beautiful app.">
-    <meta name="twitter:image" content="https://desolatemesh.github.io/images/home-screen.png">
-    
+    <meta name="twitter:title" content="VitaPlate - Smart Nutrition & Fitness Tracking App">
+    <meta name="twitter:description" content="Personalized meal plans, smart calorie tracking, macro logging, and workout tracking — all in one free Android app.">
+    <meta name="twitter:image" content="https://vitaplate.app/images/home-screen.png">
+ 
+    <!-- Schema.org App Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "VitaPlate",
+      "description": "VitaPlate is a nutrition and fitness tracking app for Android. Features include personalized 7-day meal plans, calorie tracking, macro logging, workout tracking, recipe database, and smart meal swap recommendations.",
+      "url": "https://vitaplate.app/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "installUrl": "https://play.google.com/store/apps/details?id=com.jrochau.vitaplate",
+      "screenshot": "https://vitaplate.app/images/home-screen.png",
+      "featureList": [
+        "Personalized 7-day meal plans",
+        "Calorie and macro tracking",
+        "Workout logging",
+        "Recipe database with 180+ recipes",
+        "Smart meal swap recommendations",
+        "Dietary restriction filtering",
+        "Allergy filtering",
+        "Goal-based nutrition planning"
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "Jason Rochau"
+      }
+    }
+    </script>
+ 
+    <!-- Schema.org WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "VitaPlate",
+      "url": "https://vitaplate.app/",
+      "description": "Official website for VitaPlate, a free Android nutrition and fitness tracking app."
+    }
+    </script>
+ 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -182,6 +231,7 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            align-items: center;
         }
         .btn-primary {
             display: inline-flex;
@@ -196,7 +246,10 @@
             font-size: 1.1rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(243, 146, 55, 0.3);
-            cursor: default;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(243, 146, 55, 0.4);
         }
         .btn-secondary {
             display: inline-flex;
@@ -215,6 +268,20 @@
         .btn-secondary:hover {
             background: var(--teal);
             color: var(--white);
+        }
+        .google-play-badge {
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 8px;
+        }
+        .google-play-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .google-play-badge img {
+            height: 60px;
+            width: auto;
+            display: block;
         }
         .hero-phone {
             position: relative;
@@ -333,10 +400,7 @@
             color: var(--gray-600);
             line-height: 1.7;
         }
-
-        /* ==================== */
-        /* FEATURE DEEP-DIVE SECTION */
-        /* ==================== */
+        /* Feature Deep-Dive Section */
         .feature-deep-dive {
             padding: 6rem 2rem;
             background: linear-gradient(180deg, var(--cream) 0%, var(--white) 50%, var(--cream) 100%);
@@ -484,10 +548,7 @@
         .deep-dive-feature-tag:nth-child(2) { transition-delay: 1.7s; }
         .deep-dive-feature-tag:nth-child(3) { transition-delay: 1.9s; }
         .deep-dive-feature-tag:nth-child(4) { transition-delay: 2.1s; }
-
-        /* ==================== */
-        /* WHY VITAPLATE SECTION */
-        /* ==================== */
+        /* Why VitaPlate Section */
         .why-vitaplate {
             padding: 6rem 2rem;
             background: var(--teal-dark);
@@ -611,7 +672,6 @@
             font-size: 0.95rem;
             line-height: 1.7;
         }
-
         /* How It Works */
         .how-it-works {
             padding: 6rem 2rem;
@@ -664,7 +724,6 @@
             color: var(--gray-600);
             line-height: 1.7;
         }
-
         /* CTA Section */
         .cta {
             padding: 6rem 2rem;
@@ -686,28 +745,32 @@
             font-size: 1.2rem;
             margin-bottom: 2rem;
         }
-        .coming-soon-badge {
-            display: inline-flex;
+        .cta-badges {
+            display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 0.75rem;
-            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
-            color: var(--white);
-            padding: 1.25rem 2.5rem;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 1.2rem;
-            box-shadow: 0 8px 30px rgba(45, 122, 122, 0.3);
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
-        .coming-soon-badge svg {
-            width: 28px;
-            height: 28px;
+        .cta-google-play-badge {
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 8px;
+        }
+        .cta-google-play-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .cta-google-play-badge img {
+            height: 72px;
+            width: auto;
+            display: block;
         }
         .cta-subtext {
             margin-top: 1.5rem;
             color: var(--gray-600);
             font-size: 1rem;
         }
-
         /* Footer */
         footer {
             background: var(--gray-800);
@@ -757,7 +820,6 @@
             color: rgba(255,255,255,0.5);
             font-size: 0.9rem;
         }
-
         /* Responsive */
         @media (max-width: 900px) {
             .hero-content {
@@ -836,7 +898,7 @@
     <nav id="navbar">
         <div class="nav-content">
             <a href="#" class="nav-logo">
-                <img src="images/logo.png" alt="VitaPlate Logo">
+                <img src="images/logo.png" alt="VitaPlate nutrition tracking app logo">
                 <span>VitaPlate</span>
             </a>
             <ul class="nav-links">
@@ -845,21 +907,25 @@
                 <li><a href="#why-vitaplate">Why VitaPlate</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
             </ul>
-            <a href="#download" class="nav-cta">Coming Soon</a>
+            <a href="#download" class="nav-cta">Download App</a>
         </div>
     </nav>
-
+ 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Nutrition & Fitness, <span>Simplified</span></h1>
-                <p>Personalized meal plans, smart calorie tracking, and workout logging — all in one beautiful app designed to help you reach your health goals.</p>
+                <p>Personalized meal plans, smart calorie tracking, macro logging, and workout tracking — all in one free Android app designed to help you reach your health goals.</p>
                 <div class="hero-buttons">
-                    <div class="btn-primary">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                        Coming to Play Store
-                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=com.jrochau.vitaplate&pcampaignid=web_share"
+                       class="google-play-badge"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Download VitaPlate on Google Play">
+                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                             alt="Get VitaPlate on Google Play">
+                    </a>
                     <a href="#features" class="btn-secondary">
                         Learn More
                     </a>
@@ -869,69 +935,68 @@
                 <div class="phone-frame">
                     <div class="phone-notch"></div>
                     <div class="phone-screen">
-                        <img src="images/home-screen.png" alt="VitaPlate Home Screen">
+                        <img src="images/home-screen.png" alt="VitaPlate app home screen showing daily nutrition dashboard and meal plan">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+ 
     <!-- Features Overview Section -->
     <section class="features" id="features">
         <div class="section-header">
             <span class="section-tag">Features</span>
             <h2>Everything You Need to Succeed</h2>
-            <p>VitaPlate combines intelligent meal planning with comprehensive tracking to make healthy eating effortless.</p>
+            <p>VitaPlate combines intelligent meal planning with comprehensive nutrition and fitness tracking to make healthy eating effortless.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon teal">🍽️</div>
                 <h3>Smart Meal Plans</h3>
-                <p>Get personalized 7-day meal plans tailored to your calorie goals, dietary restrictions, and food preferences. Automatic adjustments based on your progress.</p>
+                <p>Get personalized 7-day meal plans tailored to your calorie goals, dietary restrictions, and food preferences. Automatic adjustments based on your progress keep your nutrition plan on track.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon green">🔄</div>
                 <h3>Easy Meal Swaps</h3>
-                <p>Don't like a meal suggestion? Swap it instantly with smart alternatives that match your nutritional targets. Each option shows a compatibility score.</p>
+                <p>Don't like a meal suggestion? Swap it instantly with smart alternatives that match your nutritional targets. Each option shows a compatibility score so you always stay within your macros.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon orange">📊</div>
-                <h3>Macro Tracking</h3>
-                <p>Track your protein, carbs, fats, and fiber with beautiful visual progress bars. Stay on target with real-time updates throughout the day.</p>
+                <h3>Macro & Calorie Tracking</h3>
+                <p>Track your protein, carbs, fats, and fiber with beautiful visual progress bars. Stay on target with real-time calorie counter updates throughout the day.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon teal">🥗</div>
                 <h3>Recipe Database</h3>
-                <p>Access hundreds of nutritious recipes with full ingredient lists, cooking instructions, and detailed macro breakdowns per serving.</p>
+                <p>Access 180+ nutritious recipes with full ingredient lists, cooking instructions, and detailed macro breakdowns per serving — from high-protein meals to low-calorie options.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon green">💪</div>
                 <h3>Workout Logging</h3>
-                <p>Log your workouts and see how exercise impacts your daily calorie budget. Track cardio, strength training, and more.</p>
+                <p>Log your workouts and see how exercise impacts your daily calorie budget. Track cardio, strength training, and more with automatic calorie adjustment.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon orange">⚙️</div>
-                <h3>Dietary Restrictions</h3>
-                <p>Set your allergies and dietary restrictions once. VitaPlate automatically filters out recipes containing gluten, dairy, nuts, and more.</p>
+                <h3>Dietary Restriction Filtering</h3>
+                <p>Set your allergies and dietary restrictions once. VitaPlate automatically filters out recipes containing gluten, dairy, nuts, and more — including vegan and vegetarian options.</p>
             </div>
         </div>
     </section>
-
+ 
     <!-- Feature Deep-Dive Section -->
     <section class="feature-deep-dive" id="deep-dive">
         <div class="section-header">
             <span class="section-tag">App Preview</span>
             <h2>See VitaPlate in Action</h2>
-            <p>Discover how each feature works together to simplify your nutrition journey.</p>
+            <p>Discover how each feature of our nutrition and fitness tracking app works together to simplify your health journey.</p>
         </div>
-
         <!-- Deep Dive 1: Smart Meal Planning -->
         <div class="deep-dive-item" data-typewriter="Your personalized 7-day meal plan is generated based on your exact calorie needs, fitness goals, and dietary preferences. Each day includes breakfast, lunch, dinner, and snacks—all balanced to hit your macro targets. Don't like a suggestion? Tap any meal to see smart swap alternatives with compatibility scores, so you always know how well each option fits your plan.">
             <div class="deep-dive-phone-container">
                 <div class="deep-dive-phone">
                     <div class="deep-dive-phone-notch"></div>
                     <div class="deep-dive-phone-inner">
-                        <img src="images/meal-plan.png" alt="Weekly Meal Plan">
+                        <img src="images/meal-plan.png" alt="VitaPlate weekly meal plan screen showing 7-day personalized nutrition plan">
                     </div>
                 </div>
             </div>
@@ -947,14 +1012,13 @@
                 </div>
             </div>
         </div>
-
         <!-- Deep Dive 2: Food Logging -->
-        <div class="deep-dive-item reverse" data-typewriter="Logging your meals has never been easier. Tap to add the exact meal from your 7-day plan directly to your daily log—no searching required. Need to adjust portions? Fine-tune serving sizes by 0.5 increments to match exactly what you ate. The more accurately you log, the smarter your future recommendations become.">
+        <div class="deep-dive-item reverse" data-typewriter="Logging your meals has never been easier. Tap to add the exact meal from your 7-day plan directly to your daily food log—no searching required. Need to adjust portions? Fine-tune serving sizes by 0.5 increments to match exactly what you ate. The more accurately you log, the smarter your future meal recommendations become.">
             <div class="deep-dive-phone-container">
                 <div class="deep-dive-phone">
                     <div class="deep-dive-phone-notch"></div>
                     <div class="deep-dive-phone-inner">
-                        <img src="images/food-log.png" alt="Food Logging">
+                        <img src="images/food-log.png" alt="VitaPlate food log screen showing daily calorie and macro tracking">
                     </div>
                 </div>
             </div>
@@ -970,14 +1034,13 @@
                 </div>
             </div>
         </div>
-
         <!-- Deep Dive 3: Workout Integration -->
         <div class="deep-dive-item" data-typewriter="VitaPlate connects your workouts directly to your nutrition. Log cardio, strength training, or any activity, and watch your daily calorie budget adjust automatically. Our algorithm analyzes your workout patterns alongside your meal adherence to recommend lighter meals when you've exceeded calories, or suggest nutrient-rich options when you need more fuel.">
             <div class="deep-dive-phone-container">
                 <div class="deep-dive-phone">
                     <div class="deep-dive-phone-notch"></div>
                     <div class="deep-dive-phone-inner">
-                        <img src="images/work-out.png" alt="Workout Tracking">
+                        <img src="images/work-out.png" alt="VitaPlate workout tracking screen showing exercise log and calorie adjustment">
                     </div>
                 </div>
             </div>
@@ -993,14 +1056,13 @@
                 </div>
             </div>
         </div>
-
         <!-- Deep Dive 4: Profile & Goals -->
         <div class="deep-dive-item reverse" data-typewriter="Set up your profile once, and VitaPlate does the rest. Enter your body metrics, choose your goal (cutting, maintaining, or bulking), and specify any dietary restrictions or allergies. Your calorie and macro targets are calculated automatically. As you progress, the app learns from your previous week's adherence to suggest more appropriate meals.">
             <div class="deep-dive-phone-container">
                 <div class="deep-dive-phone">
                     <div class="deep-dive-phone-notch"></div>
                     <div class="deep-dive-phone-inner">
-                        <img src="images/profile.png" alt="Profile Settings">
+                        <img src="images/profile.png" alt="VitaPlate profile and goal setting screen for personalized nutrition targets">
                     </div>
                 </div>
             </div>
@@ -1017,34 +1079,31 @@
             </div>
         </div>
     </section>
-
+ 
     <!-- Why VitaPlate Section -->
     <section class="why-vitaplate" id="why-vitaplate">
         <div class="why-vitaplate-content">
             <div class="section-header">
                 <span class="section-tag">Why VitaPlate?</span>
                 <h2>Built for Real Life</h2>
-                <p>We understand that staying healthy shouldn't be another full-time job.</p>
+                <p>We understand that staying healthy shouldn't be another full-time job. VitaPlate is the nutrition app that works as hard as you do.</p>
             </div>
-
             <div class="story-block">
                 <h3>
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                     The Problem We're Solving
                 </h3>
-                <p>Working out already requires dedication. But tracking macros, planning meals, and logging food? That's where most people give up. Paper journals get lost. Spreadsheets become tedious. Generic apps don't understand <em>your</em> goals.</p>
-                <p>VitaPlate was built to <span class="story-highlight">remove the friction from healthy eating</span> so you can focus on actually living your life—while still making progress toward your goals.</p>
+                <p>Working out already requires dedication. But tracking macros, planning meals, and logging food? That's where most people give up. Paper journals get lost. Spreadsheets become tedious. Generic calorie counter apps don't understand <em>your</em> goals.</p>
+                <p>VitaPlate was built to <span class="story-highlight">remove the friction from healthy eating</span> so you can focus on actually living your life — while still making progress toward your fitness and nutrition goals.</p>
             </div>
-
             <div class="story-block">
                 <h3>
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
                     Smart Algorithms, Not Guesswork
                 </h3>
-                <p>Our recommendation engine works behind the scenes to connect the dots. When you log your meals and workouts, we analyze your <span class="story-highlight">adherence patterns from the previous week</span> to determine more appropriate meals for the coming week.</p>
-                <p>Consistently over your calorie target? We'll suggest lighter options. Need more protein? We'll prioritize protein-rich recipes. The better you log, the smarter VitaPlate becomes.</p>
+                <p>Our meal recommendation engine works behind the scenes to connect the dots between your diet and your workouts. When you log your meals and exercises, we analyze your <span class="story-highlight">adherence patterns from the previous week</span> to determine more appropriate meals for the coming week.</p>
+                <p>Consistently over your calorie target? We'll suggest lighter, lower-calorie options. Need more protein after strength training? We'll prioritize high-protein recipes. The better you log, the smarter VitaPlate becomes.</p>
             </div>
-
             <div class="recipe-counter">
                 <div class="counter-item">
                     <div class="counter-number" data-target="180">0</div>
@@ -1060,50 +1119,56 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
                     A Note on Dietary Restrictions
                 </h4>
-                <p>We currently have <strong>180 recipes</strong> in our database. While this covers most users well, please understand that adding multiple dietary restrictions (vegan + gluten-free + nut-free, for example) will significantly limit your meal options. In some cases, a full 7-day plan may not be possible. As we continue to update the app, we'll be adding more recipes to better serve users with complex dietary needs.</p>
+                <p>We currently have <strong>180 recipes</strong> in our database. While this covers most users well, please understand that adding multiple dietary restrictions (vegan + gluten-free + nut-free, for example) will significantly limit your meal options. In some cases, a full 7-day plan may not be possible. We'll be adding more recipes regularly to better serve users with complex dietary needs.</p>
             </div>
         </div>
     </section>
-
+ 
     <!-- How It Works -->
     <section class="how-it-works" id="how-it-works">
         <div class="section-header">
             <span class="section-tag">Getting Started</span>
             <h2>How VitaPlate Works</h2>
-            <p>Start your health journey in three simple steps.</p>
+            <p>Start your nutrition and fitness journey in three simple steps.</p>
         </div>
         <div class="steps">
             <div class="step">
                 <div class="step-number">1</div>
                 <h3>Set Your Goals</h3>
-                <p>Enter your profile details, choose your fitness goal (cut, maintain, or bulk), and set any dietary restrictions or allergies.</p>
+                <p>Enter your profile details, choose your fitness goal (cut, maintain, or bulk), and set any dietary restrictions or food allergies. VitaPlate calculates your personalized calorie and macro targets automatically.</p>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
                 <h3>Get Your Plan</h3>
-                <p>VitaPlate generates a personalized 7-day meal plan with balanced nutrition tailored to your exact calorie and macro needs.</p>
+                <p>VitaPlate generates a personalized 7-day meal plan with balanced nutrition tailored to your exact calorie and macro needs — including breakfast, lunch, dinner, and snacks.</p>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
                 <h3>Track & Achieve</h3>
-                <p>Log your meals and workouts, swap meals you don't like, and watch the app learn from your habits to make smarter suggestions.</p>
+                <p>Log your meals and workouts, swap meals you don't like, and watch the app learn from your habits to make smarter nutrition suggestions each week.</p>
             </div>
         </div>
     </section>
-
-    <!-- CTA Section -->
+ 
+    <!-- CTA / Download Section -->
     <section class="cta" id="download">
         <div class="cta-content">
             <h2>Ready to Transform Your Nutrition?</h2>
-            <p>VitaPlate is currently being reviewed for the Google Play Store. Be among the first to download when we launch!</p>
-            <div class="coming-soon-badge">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
-                Coming Soon to Google Play
+            <p>Download VitaPlate free on Android and start your personalized meal plan today.</p>
+            <div class="cta-badges">
+                <a href="https://play.google.com/store/apps/details?id=com.jrochau.vitaplate&pcampaignid=web_share"
+                   class="cta-google-play-badge"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Download VitaPlate free on Google Play Store">
+                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                         alt="Get VitaPlate - Nutrition & Fitness Tracker on Google Play">
+                </a>
             </div>
-            <p class="cta-subtext">We'll update this page with the download link once approved.</p>
+            <p class="cta-subtext">Free to download. Available now on Android.</p>
         </div>
     </section>
-
+ 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -1121,7 +1186,7 @@
             <p class="footer-copy">© 2025 VitaPlate. All rights reserved. Made with 💚 for your health.</p>
         </div>
     </footer>
-
+ 
     <script>
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
@@ -1132,38 +1197,26 @@
                 navbar.classList.remove('scrolled');
             }
         });
-
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
-
         // Intersection Observer for animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.2
-        };
-
-        // Deep Dive Items - Scroll animations with flip and typewriter
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
+        // Deep Dive Items
         const deepDiveItems = document.querySelectorAll('.deep-dive-item');
-        const typewriterSpeed = 20; // milliseconds per character
-
+        const typewriterSpeed = 20;
         function typeWriter(element, text, callback) {
             let i = 0;
             element.innerHTML = '';
             const cursor = document.createElement('span');
             cursor.className = 'typewriter-cursor';
-            
             function type() {
                 if (i < text.length) {
                     element.innerHTML = text.substring(0, i + 1);
@@ -1171,7 +1224,6 @@
                     i++;
                     setTimeout(type, typewriterSpeed);
                 } else {
-                    // Remove cursor after typing completes
                     setTimeout(() => {
                         cursor.remove();
                         if (callback) callback();
@@ -1180,52 +1232,27 @@
             }
             type();
         }
-
         const deepDiveObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
                     entry.target.classList.add('visible');
-                    
-                    // Trigger phone flip animation
                     const phone = entry.target.querySelector('.deep-dive-phone');
-                    if (phone) {
-                        setTimeout(() => {
-                            phone.classList.add('flip');
-                        }, 300);
-                    }
-                    
-                    // Trigger typewriter effect
+                    if (phone) setTimeout(() => { phone.classList.add('flip'); }, 300);
                     const typewriterElement = entry.target.querySelector('.typewriter-text');
                     const text = entry.target.dataset.typewriter;
-                    if (typewriterElement && text) {
-                        setTimeout(() => {
-                            typeWriter(typewriterElement, text);
-                        }, 800);
-                    }
+                    if (typewriterElement && text) setTimeout(() => { typeWriter(typewriterElement, text); }, 800);
                 }
             });
         }, observerOptions);
-
-        deepDiveItems.forEach(item => {
-            deepDiveObserver.observe(item);
-        });
-
+        deepDiveItems.forEach(item => deepDiveObserver.observe(item));
         // Story blocks animation
         const storyBlocks = document.querySelectorAll('.story-block');
         const storyObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 200);
-                }
+                if (entry.isIntersecting) setTimeout(() => { entry.target.classList.add('visible'); }, index * 200);
             });
         }, { threshold: 0.3 });
-
-        storyBlocks.forEach(block => {
-            storyObserver.observe(block);
-        });
-
+        storyBlocks.forEach(block => storyObserver.observe(block));
         // Counter animation
         const counterNumbers = document.querySelectorAll('.counter-number');
         const counterObserver = new IntersectionObserver((entries) => {
@@ -1247,10 +1274,7 @@
                 }
             });
         }, { threshold: 0.5 });
-
-        counterNumbers.forEach(num => {
-            counterObserver.observe(num);
-        });
+        counterNumbers.forEach(num => counterObserver.observe(num));
     </script>
 </body>
 </html>
