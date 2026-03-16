@@ -45,7 +45,7 @@
         "Personalized 7-day meal plans",
         "Calorie and macro tracking",
         "Workout logging",
-        "Recipe database with 180+ recipes",
+        "Recipe database with 280+ recipes",
         "Smart meal swap recommendations",
         "Dietary restriction filtering",
         "Allergy filtering",
@@ -460,6 +460,14 @@
             width: 100%;
             height: auto;
             display: block;
+        }
+        /* Demo video inside phone frame — matches image behaviour exactly */
+        .deep-dive-phone-inner .deep-dive-video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 32px;
+            object-fit: cover;
         }
         .deep-dive-phone-notch {
             position: absolute;
@@ -968,7 +976,7 @@
             <div class="feature-card">
                 <div class="feature-icon teal">🥗</div>
                 <h3>Recipe Database</h3>
-                <p>Access 180+ nutritious recipes with full ingredient lists, cooking instructions, and detailed macro breakdowns per serving — from high-protein meals to low-calorie options.</p>
+                <p>Access 280+ nutritious recipes with full ingredient lists, cooking instructions, and detailed macro breakdowns per serving — from high-protein meals to low-calorie options.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon green">💪</div>
@@ -1075,6 +1083,36 @@
                     <span class="deep-dive-feature-tag">🎯 Goal Setting</span>
                     <span class="deep-dive-feature-tag">🚫 Allergy Filtering</span>
                     <span class="deep-dive-feature-tag">📈 Adaptive Learning</span>
+                </div>
+            </div>
+        </div>
+        <!-- Deep Dive 5: Live Demo -->
+        <div class="deep-dive-item" data-typewriter="Watch VitaPlate in action. From setting up your profile to generating your first meal plan and logging a workout — see exactly how the app flows in real daily use.">
+            <div class="deep-dive-phone-container">
+                <div class="deep-dive-phone" id="demo-phone">
+                    <div class="deep-dive-phone-notch"></div>
+                    <div class="deep-dive-phone-inner">
+                        <video
+                            id="vitaplate-demo-video"
+                            class="deep-dive-video"
+                            src="images/vitaplate_demo.mp4"
+                            playsinline
+                            controls
+                            preload="metadata"
+                            aria-label="VitaPlate app walkthrough demo video">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="deep-dive-content">
+                <span class="deep-dive-tag green">Full Walkthrough</span>
+                <h3>See It for Yourself</h3>
+                <div class="typewriter-text"></div>
+                <div class="deep-dive-features">
+                    <span class="deep-dive-feature-tag">▶️ Real App Footage</span>
+                    <span class="deep-dive-feature-tag">📱 Live Demo</span>
+                    <span class="deep-dive-feature-tag">🎯 End-to-End Flow</span>
+                    <span class="deep-dive-feature-tag">🔊 With Voiceover</span>
                 </div>
             </div>
         </div>
@@ -1232,6 +1270,8 @@
             }
             type();
         }
+        // Demo video: play when scrolled into view, pause when scrolled out
+        const demoVideo = document.getElementById('vitaplate-demo-video');
         const deepDiveObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
@@ -1241,6 +1281,14 @@
                     const typewriterElement = entry.target.querySelector('.typewriter-text');
                     const text = entry.target.dataset.typewriter;
                     if (typewriterElement && text) setTimeout(() => { typeWriter(typewriterElement, text); }, 800);
+                }
+                // Play/pause the demo video based on visibility
+                if (entry.target.contains(demoVideo)) {
+                    if (entry.isIntersecting) {
+                        demoVideo.play().catch(() => {});
+                    } else {
+                        demoVideo.pause();
+                    }
                 }
             });
         }, observerOptions);
