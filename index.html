@@ -3,901 +3,632 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VitaPlate - Smart Nutrition & Fitness Tracking App</title>
-    <meta name="description" content="VitaPlate is a free nutrition and fitness tracking app for Android. Get personalized 7-day meal plans, smart calorie tracking, macro logging, workout tracking, and recipe recommendations — all in one app.">
-    <meta name="keywords" content="nutrition tracking app, calorie counter, meal planner, macro tracker, fitness tracker, diet app, healthy eating app, workout logger, meal planning, android nutrition app, macro calculator, vitaplate">
-    <meta name="author" content="VitaPlate">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://vitaplate.app/">
-
-    <!-- Open Graph / LinkedIn / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vitaplate.app/">
-    <meta property="og:title" content="VitaPlate - Smart Nutrition & Fitness Tracking App">
-    <meta property="og:description" content="Personalized meal plans, smart calorie tracking, macro logging, workout analytics, and a recipe macro calculator — all in one free Android app.">
+    <title>VitaPlate | The Future of Frictionless Nutrition</title>
+    <meta name="description" content="VitaPlate is a free nutrition and fitness tracking app for Android. Personalized 7-day meal plans, macro tracking, workout analytics, and a recipe macro calculator — all offline, no account needed.">
+    <meta name="keywords" content="nutrition tracking app, calorie counter, meal planner, macro tracker, fitness tracker, macro calculator, workout analytics, vitaplate">
+    <meta property="og:title" content="VitaPlate | The Future of Frictionless Nutrition">
+    <meta property="og:description" content="Personalized plans, smart swaps, workout analytics, and a recipe macro calculator — one free Android app.">
     <meta property="og:image" content="https://vitaplate.app/images/home-screen.png">
-    <meta property="og:site_name" content="VitaPlate">
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="VitaPlate - Smart Nutrition & Fitness Tracking App">
-    <meta name="twitter:description" content="Personalized meal plans, smart calorie tracking, macro logging, and workout tracking — all in one free Android app.">
-    <meta name="twitter:image" content="https://vitaplate.app/images/home-screen.png">
-
-    <!-- Schema.org App Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MobileApplication",
-      "name": "VitaPlate",
-      "description": "VitaPlate is a nutrition and fitness tracking app for Android. Features include personalized 7-day meal plans, calorie tracking, macro logging, workout tracking, recipe database, workout analytics, macro calculator, and smart meal swap recommendations.",
-      "url": "https://vitaplate.app/",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Android",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "installUrl": "https://play.google.com/store/apps/details?id=com.jrochau.vitaplate",
-      "screenshot": "https://vitaplate.app/images/home-screen.png",
-      "featureList": [
-        "Personalized 7-day meal plans",
-        "Calorie and macro tracking",
-        "Workout logging with calendar view",
-        "Workout analytics with donut chart and line graphs",
-        "Recipe macro calculator — paste any ingredient list",
-        "Recipe database with 300+ recipes",
-        "Smart meal swap recommendations",
-        "Dietary restriction filtering",
-        "Allergy filtering",
-        "Goal-based nutrition planning"
-      ],
-      "author": {
-        "@type": "Person",
-        "name": "Jason Rochau"
-      }
-    }
-    </script>
-
-    <!-- Schema.org WebSite -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "VitaPlate",
-      "url": "https://vitaplate.app/",
-      "description": "Official website for VitaPlate, a free Android nutrition and fitness tracking app."
-    }
-    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;900&family=Playfair+Display:ital,wght@0,700;1,700;1,900&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --teal-dark: #1a4e4e;
-            --teal: #2d7a7a;
-            --teal-light: #3d9a9a;
-            --green: #7cba37;
-            --green-light: #9ed45a;
-            --orange: #f39237;
-            --orange-light: #ffb066;
-            --cream: #faf9f6;
-            --white: #ffffff;
-            --gray-100: #f5f5f5;
-            --gray-200: #e5e5e5;
-            --gray-600: #666666;
-            --gray-800: #333333;
+            --primary: #0f5c5e;
+            --dark: #072a2b;
+            --accent: #8bc53f;
+            --energy: #f7941d;
+            --glass-bg: rgba(255,255,255,0.1);
+            --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            --cream: #f4f7f4;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--cream);
-            color: var(--gray-800);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        /* Navigation */
+        body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+
+        /* ── NAV ── */
         nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            padding: 1rem 2rem;
-            background: rgba(250, 249, 246, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--gray-200);
-            transition: all 0.3s ease;
+            padding: 1.25rem 2rem;
+            background: rgba(7, 42, 43, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: var(--transition);
         }
-        nav.scrolled { padding: 0.75rem 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        .nav-content {
-            max-width: 1200px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
-        .nav-logo img { height: 45px; width: auto; }
-        .nav-logo span { font-size: 1.5rem; font-weight: 700; color: var(--teal-dark); }
+        .nav-inner { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+        .nav-logo img { height: 36px; }
+        .nav-logo span { font-size: 1.3rem; font-weight: 700; color: white; }
         .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--gray-600); font-weight: 500; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--teal); }
-        .nav-cta {
-            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
-            color: var(--white); padding: 0.75rem 1.5rem; border-radius: 50px;
-            text-decoration: none; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s;
+        .nav-links a { text-decoration: none; color: rgba(255,255,255,0.7); font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-dl {
+            background: var(--accent); color: var(--dark); padding: 0.6rem 1.4rem;
+            border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.9rem;
+            transition: var(--transition);
         }
-        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(45,122,122,0.3); }
+        .nav-dl:hover { background: #9ed45a; transform: translateY(-2px); }
 
-        /* Hero */
+        /* ── HERO ── */
         .hero {
-            min-height: 100vh; display: flex; align-items: center;
-            padding: 8rem 2rem 4rem; position: relative; overflow: hidden;
-        }
-        .hero::before {
-            content: ''; position: absolute; top: -50%; right: -20%; width: 80%; height: 150%;
-            background: radial-gradient(ellipse at center, rgba(124,186,55,0.1) 0%, transparent 70%);
-            pointer-events: none;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            display: flex; align-items: center;
+            position: relative; color: white; overflow: hidden;
+            padding-top: 80px;
         }
         .hero::after {
-            content: ''; position: absolute; bottom: -30%; left: -10%; width: 50%; height: 100%;
-            background: radial-gradient(ellipse at center, rgba(243,146,55,0.08) 0%, transparent 70%);
-            pointer-events: none;
+            content: ''; position: absolute; width: 150%; height: 100%;
+            top: 20%; left: -25%;
+            background: rgba(139,197,63,0.05);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            transform: rotate(-10deg); z-index: 0;
         }
-        .hero-content {
-            max-width: 1200px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-            position: relative; z-index: 1;
-        }
-        .hero-text h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1;
-            color: var(--teal-dark); margin-bottom: 1.5rem;
-        }
-        .hero-text h1 span {
-            background: linear-gradient(135deg, var(--green) 0%, var(--orange) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .hero-text p { font-size: 1.25rem; color: var(--gray-600); margin-bottom: 2rem; max-width: 500px; }
-        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-        .btn-primary {
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+        .hero-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
+        .hero-eyebrow {
             display: inline-flex; align-items: center; gap: 0.5rem;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
-            color: var(--white); padding: 1rem 2rem; border-radius: 50px;
-            text-decoration: none; font-weight: 600; font-size: 1.1rem;
-            transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(243,146,55,0.3);
+            background: rgba(139,197,63,0.15); border: 1px solid rgba(139,197,63,0.3);
+            color: var(--accent); padding: 0.4rem 1rem; border-radius: 50px;
+            font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+            margin-bottom: 1.5rem;
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(243,146,55,0.4); }
-        .btn-secondary {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: var(--white); color: var(--teal-dark); padding: 1rem 2rem;
-            border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem;
-            border: 2px solid var(--teal); transition: all 0.3s ease;
+        h1 { font-size: clamp(3rem, 7vw, 5.5rem); line-height: 0.95; font-weight: 900; letter-spacing: -2px; margin-bottom: 2rem; }
+        h1 em { font-family: 'Playfair Display', serif; color: var(--accent); font-style: italic; font-weight: 700; }
+        .glass-cta {
+            background: var(--glass-bg); backdrop-filter: blur(10px);
+            padding: 2rem; border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.2); max-width: 480px;
         }
-        .btn-secondary:hover { background: var(--teal); color: var(--white); }
-        .google-play-badge { display: inline-block; transition: transform 0.2s, box-shadow 0.2s; border-radius: 8px; }
-        .google-play-badge:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-        .google-play-badge img { height: 60px; width: auto; display: block; }
-        .hero-phone { position: relative; display: flex; justify-content: center; }
-        .phone-frame {
-            position: relative; width: 300px; background: var(--gray-800);
-            border-radius: 40px; padding: 12px;
-            box-shadow: 0 50px 100px rgba(0,0,0,0.15), 0 20px 40px rgba(0,0,0,0.1), inset 0 0 0 2px rgba(255,255,255,0.1);
-            animation: float 6s ease-in-out infinite;
+        .glass-cta p { font-size: 1.1rem; margin-bottom: 1.75rem; opacity: 0.9; }
+        .hero-badges { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+        .btn-google img { height: 56px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); transition: var(--transition); }
+        .btn-google:hover img { transform: translateY(-5px) scale(1.05); }
+        .hero-stat { text-align: center; }
+        .hero-stat strong { display: block; font-size: 1.8rem; font-weight: 900; color: var(--accent); line-height: 1; }
+        .hero-stat span { font-size: 0.8rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.05em; }
+        .hero-stats { display: flex; gap: 2rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .phone-hero {
+            width: 100%; max-width: 320px; margin: 0 auto; display: block;
+            border: 10px solid #1a1a1a; border-radius: 50px;
+            box-shadow: 0 80px 120px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+            animation: phoneFloat 6s ease-in-out infinite;
         }
-        @keyframes float {
+        @keyframes phoneFloat {
             0%, 100% { transform: translateY(0) rotate(-2deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-        .phone-screen { width: 100%; border-radius: 32px; overflow: hidden; background: var(--white); }
-        .phone-screen img { width: 100%; height: auto; display: block; }
-        .phone-notch {
-            position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
-            width: 100px; height: 22px; background: var(--gray-800); border-radius: 20px; z-index: 10;
+            50% { transform: translateY(-25px) rotate(2deg); }
         }
 
-        /* Features Overview */
-        .features { padding: 6rem 2rem; background: var(--white); }
-        .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
-        .section-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
-            color: var(--white); padding: 0.5rem 1.25rem; border-radius: 50px;
-            font-size: 0.875rem; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 0.05em; margin-bottom: 1rem;
+        /* ── ACTION CARDS ── */
+        .notifications-demo { padding: 8rem 0; background: #fff; }
+        .flow-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+        .app-action-card {
+            background: #fff; padding: 1.4rem 1.6rem; border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.07); margin-bottom: 1.25rem;
+            display: flex; align-items: center; gap: 18px; border: 1px solid #f0f0f0;
+            transform: translateX(-40px); opacity: 0; transition: var(--transition);
         }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem,4vw,3rem); color: var(--teal-dark); margin-bottom: 1rem; }
-        .section-header p { color: var(--gray-600); font-size: 1.1rem; }
-        .features-grid {
-            max-width: 1200px; margin: 0 auto;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;
-        }
-        .feature-card {
-            background: var(--cream); border-radius: 24px; padding: 2rem;
-            transition: all 0.3s ease; border: 1px solid var(--gray-200);
-        }
-        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.08); border-color: var(--teal-light); }
-        .feature-icon {
-            width: 60px; height: 60px; border-radius: 16px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 1.5rem; font-size: 1.75rem;
-        }
-        .feature-icon.teal { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); }
-        .feature-icon.green { background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%); }
-        .feature-icon.orange { background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%); }
-        .feature-card h3 { font-size: 1.35rem; color: var(--teal-dark); margin-bottom: 0.75rem; font-weight: 700; }
-        .feature-card p { color: var(--gray-600); line-height: 1.7; }
+        .app-action-card.reveal { transform: translateX(0); opacity: 1; }
+        .icon-circle { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+        .flow-text h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; }
+        .flow-text p { color: #555; font-size: 1.05rem; margin-bottom: 1.75rem; line-height: 1.8; }
+        .check-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .check-list li { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1rem; }
+        .check-list li span.check { color: var(--accent); font-size: 1.1rem; }
 
-        /* Feature Deep-Dive */
-        .feature-deep-dive {
-            padding: 6rem 2rem;
-            background: linear-gradient(180deg, var(--cream) 0%, var(--white) 50%, var(--cream) 100%);
+        /* ── FEATURE SECTION (phone + copy) ── */
+        .feature-section { padding: 7rem 0; }
+        .feature-section.dark { background: var(--dark); color: white; }
+        .feature-section.light { background: #fff; }
+        .feature-section.cream { background: var(--cream); }
+        .feature-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+        .feature-layout.flip { direction: rtl; }
+        .feature-layout.flip > * { direction: ltr; }
+        .feature-tag {
+            display: inline-block; padding: 0.35rem 1rem; border-radius: 50px;
+            font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+            margin-bottom: 1.25rem;
         }
-        .deep-dive-item {
-            max-width: 1200px; margin: 0 auto 8rem;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-            opacity: 0; transform: translateY(60px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+        .feature-tag.teal { background: rgba(15,92,94,0.12); color: var(--primary); }
+        .feature-tag.teal-inv { background: rgba(139,197,63,0.15); color: var(--accent); }
+        .feature-tag.orange { background: rgba(247,148,29,0.12); color: var(--energy); }
+        .feature-tag.green { background: rgba(139,197,63,0.12); color: #5a8a1a; }
+        .feature-section.dark .feature-tag.teal { background: rgba(139,197,63,0.15); color: var(--accent); }
+        .feature-h { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.15; margin-bottom: 1.25rem; }
+        .feature-section.dark .feature-h { color: white; }
+        .feature-p { font-size: 1.05rem; line-height: 1.85; margin-bottom: 1.5rem; }
+        .feature-section.dark .feature-p { color: rgba(255,255,255,0.75); }
+        .feature-p:last-of-type { margin-bottom: 0; }
+        .feature-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+        .chip {
+            padding: 0.4rem 0.9rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;
+            border: 1px solid; display: inline-flex; align-items: center; gap: 0.4rem;
         }
-        .deep-dive-item.visible { opacity: 1; transform: translateY(0); }
-        .deep-dive-item:last-child { margin-bottom: 0; }
-        .deep-dive-item.reverse { direction: rtl; }
-        .deep-dive-item.reverse > * { direction: ltr; }
-        .deep-dive-phone-container { display: flex; justify-content: center; perspective: 1000px; }
-        .deep-dive-phone {
-            position: relative; width: 280px; background: var(--gray-800);
-            border-radius: 40px; padding: 10px;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.2), 0 15px 30px rgba(0,0,0,0.15), inset 0 0 0 2px rgba(255,255,255,0.1);
-            transform-style: preserve-3d;
-            transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .deep-dive-phone.flip { transform: rotateY(360deg); }
-        .deep-dive-phone-inner { width: 100%; border-radius: 32px; overflow: hidden; background: var(--white); }
-        .deep-dive-phone-inner img { width: 100%; height: auto; display: block; }
-        .deep-dive-phone-inner .deep-dive-video {
-            width: 100%; height: auto; display: block; border-radius: 32px; object-fit: cover;
-        }
-        .deep-dive-phone-notch {
-            position: absolute; top: 18px; left: 50%; transform: translateX(-50%);
-            width: 90px; height: 20px; background: var(--gray-800); border-radius: 20px; z-index: 10;
-        }
-        .deep-dive-content { padding: 2rem 0; }
-        .deep-dive-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
-            color: var(--white); padding: 0.4rem 1rem; border-radius: 50px;
-            font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 0.05em; margin-bottom: 1rem;
-        }
-        .deep-dive-tag.green { background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%); }
-        .deep-dive-tag.orange { background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%); }
-        .deep-dive-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.75rem, 3vw, 2.5rem); color: var(--teal-dark);
-            margin-bottom: 1.5rem; line-height: 1.2;
-        }
-        .deep-dive-content .typewriter-text { font-size: 1.1rem; color: var(--gray-600); line-height: 1.8; }
-        .deep-dive-features { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem; }
-        .deep-dive-feature-tag {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: var(--white); border: 1px solid var(--gray-200);
-            padding: 0.5rem 1rem; border-radius: 50px;
-            font-size: 0.9rem; color: var(--gray-800); font-weight: 500;
-            opacity: 0; transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        .deep-dive-item.visible .deep-dive-feature-tag { opacity: 1; transform: translateY(0); }
-        .deep-dive-feature-tag:nth-child(1) { transition-delay: 1.5s; }
-        .deep-dive-feature-tag:nth-child(2) { transition-delay: 1.7s; }
-        .deep-dive-feature-tag:nth-child(3) { transition-delay: 1.9s; }
-        .deep-dive-feature-tag:nth-child(4) { transition-delay: 2.1s; }
+        .chip.teal { border-color: rgba(15,92,94,0.2); color: var(--primary); background: rgba(15,92,94,0.06); }
+        .chip.green { border-color: rgba(139,197,63,0.3); color: #5a8a1a; background: rgba(139,197,63,0.08); }
+        .chip.orange { border-color: rgba(247,148,29,0.3); color: #b85e00; background: rgba(247,148,29,0.08); }
+        .feature-section.dark .chip.teal { border-color: rgba(139,197,63,0.3); color: var(--accent); background: rgba(139,197,63,0.08); }
+        .feature-section.dark .chip.green { border-color: rgba(139,197,63,0.3); color: var(--accent); background: rgba(139,197,63,0.08); }
+        .feature-section.dark .chip.orange { border-color: rgba(247,148,29,0.3); color: var(--energy); background: rgba(247,148,29,0.08); }
 
-        /* Why VitaPlate */
-        .why-vitaplate {
-            padding: 6rem 2rem; background: var(--teal-dark); color: var(--white);
-            position: relative; overflow: hidden;
+        /* Phone frame */
+        .phone-wrap { display: flex; justify-content: center; align-items: flex-start; gap: 1.5rem; }
+        .phone-frame {
+            border: 10px solid #1a1a1a; border-radius: 48px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.04);
+            overflow: hidden; background: #1a1a1a;
+            flex-shrink: 0;
         }
-        .why-vitaplate::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.5;
-        }
-        .why-vitaplate-content { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; }
-        .why-vitaplate .section-header { margin-bottom: 3rem; }
-        .why-vitaplate .section-tag { background: rgba(255,255,255,0.2); }
-        .why-vitaplate h2 { color: var(--white); }
-        .why-vitaplate .section-header p { color: rgba(255,255,255,0.8); }
-        .story-block {
-            background: rgba(255,255,255,0.05); border-radius: 24px; padding: 2.5rem;
-            margin-bottom: 2rem; border: 1px solid rgba(255,255,255,0.1);
-            opacity: 0; transform: translateY(40px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .story-block.visible { opacity: 1; transform: translateY(0); }
-        .story-block h3 {
-            font-size: 1.5rem; margin-bottom: 1rem; color: var(--green-light);
-            display: flex; align-items: center; gap: 0.75rem;
-        }
-        .story-block h3 svg { width: 28px; height: 28px; flex-shrink: 0; }
-        .story-block p { color: rgba(255,255,255,0.85); line-height: 1.8; font-size: 1.05rem; }
-        .story-block p + p { margin-top: 1rem; }
-        .story-highlight { color: var(--orange-light); font-weight: 600; }
-        .recipe-counter {
-            display: flex; justify-content: center; align-items: center;
-            gap: 2rem; margin: 3rem 0; flex-wrap: wrap;
-        }
-        .counter-item {
-            text-align: center; padding: 1.5rem 2.5rem;
-            background: rgba(255,255,255,0.08); border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .counter-number {
-            font-size: 3.5rem; font-weight: 800;
-            background: linear-gradient(135deg, var(--green) 0%, var(--orange) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-            line-height: 1;
-        }
-        .counter-label { font-size: 1rem; color: rgba(255,255,255,0.7); margin-top: 0.5rem; }
-        .honest-note {
-            background: rgba(243,146,55,0.15); border-left: 4px solid var(--orange);
-            padding: 1.5rem 2rem; border-radius: 0 16px 16px 0; margin-top: 2rem;
-        }
-        .honest-note h4 {
-            color: var(--orange-light); font-size: 1.1rem; margin-bottom: 0.5rem;
-            display: flex; align-items: center; gap: 0.5rem;
-        }
-        .honest-note p { color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.7; }
+        .phone-frame img { width: 100%; height: auto; display: block; }
+        .phone-frame video { width: 100%; height: auto; display: block; }
+        .phone-frame.primary { width: 240px; }
+        .phone-frame.secondary { width: 200px; margin-top: 3rem; }
+        .phone-frame.featured { width: 280px; }
+        .phone-frame.dark-bg { border-color: #2a2a2a; }
 
-        /* How It Works */
-        .how-it-works { padding: 6rem 2rem; background: var(--white); position: relative; overflow: hidden; }
-        .steps {
-            max-width: 1000px; margin: 0 auto;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem; position: relative; z-index: 1;
+        /* ── WHY VITAPLATE BENTO ── */
+        .why-section {
+            background: var(--dark); color: white;
+            padding: 8rem 0; border-radius: 80px 80px 0 0;
+            margin-top: 2rem;
         }
-        .step {
-            text-align: center; padding: 2rem; background: var(--cream);
-            border-radius: 24px; border: 1px solid var(--gray-200); transition: all 0.3s ease;
+        .story-header { margin-bottom: 5rem; max-width: 800px; }
+        .story-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--accent); line-height: 1.05; margin-bottom: 1.5rem; font-style: italic; }
+        .story-header p { font-size: 1.2rem; opacity: 0.75; line-height: 1.8; }
+        .bento-grid { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: auto auto; gap: 16px; margin-bottom: 3rem; }
+        .bento-item {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+            padding: 3rem; border-radius: 32px; transition: var(--transition);
         }
-        .step:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
-        .step-number {
-            width: 70px; height: 70px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--green) 0%, var(--orange) 100%);
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 1.5rem; font-size: 1.75rem; font-weight: 800; color: var(--white);
-            box-shadow: 0 10px 30px rgba(124,186,55,0.3);
+        .bento-item:hover { background: rgba(255,255,255,0.06); transform: scale(1.01); }
+        .bento-item h3 { font-size: 1.75rem; font-weight: 800; margin-bottom: 1rem; color: var(--energy); }
+        .bento-item p { opacity: 0.75; line-height: 1.8; font-size: 1rem; }
+        .bento-item.span2 { grid-column: span 2; }
+        .bento-item.span2 h3 { color: white; }
+        .honest-outer { margin-top: 2rem; }
+        .honest-card {
+            background: #fff; border-radius: 32px; padding: 3rem;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+            display: grid; grid-template-columns: 64px 1fr; gap: 2rem; align-items: start;
+            border: 1px solid #f0eee2;
         }
-        .step h3 { font-size: 1.35rem; margin-bottom: 0.75rem; font-weight: 700; color: var(--teal-dark); }
-        .step p { color: var(--gray-600); line-height: 1.7; }
+        .honest-emoji { font-size: 2.75rem; line-height: 1; }
+        .honest-card h4 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--accent); margin-bottom: 0.75rem; }
+        .honest-card p { color: #555; font-size: 1.05rem; line-height: 1.85; }
 
-        /* CTA */
-        .cta { padding: 6rem 2rem; background: var(--cream); text-align: center; }
-        .cta-content { max-width: 700px; margin: 0 auto; }
-        .cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem,4vw,3rem); color: var(--teal-dark); margin-bottom: 1rem; }
-        .cta p { color: var(--gray-600); font-size: 1.2rem; margin-bottom: 2rem; }
-        .cta-badges { display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-        .cta-google-play-badge { display: inline-block; transition: transform 0.2s, box-shadow 0.2s; border-radius: 8px; }
-        .cta-google-play-badge:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-        .cta-google-play-badge img { height: 72px; width: auto; display: block; }
-        .cta-subtext { margin-top: 1.5rem; color: var(--gray-600); font-size: 1rem; }
-
-        /* Footer */
-        footer { background: var(--gray-800); color: var(--white); padding: 3rem 2rem; }
-        .footer-content {
-            max-width: 1200px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: center;
-            flex-wrap: wrap; gap: 2rem;
+        /* ── VIDEO SECTION ── */
+        .video-section { padding: 7rem 0; background: var(--cream); }
+        .video-header { text-align: center; margin-bottom: 4rem; }
+        .video-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.5rem); color: var(--dark); margin-bottom: 1rem; font-style: italic; }
+        .video-header p { color: #666; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .video-phone-wrap { display: flex; justify-content: center; }
+        .video-phone {
+            border: 12px solid #1a1a1a; border-radius: 52px;
+            box-shadow: 0 60px 120px rgba(0,0,0,0.25); overflow: hidden;
+            background: #1a1a1a; width: 320px;
         }
-        .footer-logo { display: flex; align-items: center; gap: 0.75rem; }
-        .footer-logo img { height: 40px; }
-        .footer-logo span { font-size: 1.25rem; font-weight: 700; }
+        .video-phone video { width: 100%; height: auto; display: block; }
+
+        /* ── FINAL CTA ── */
+        .final-cta { padding: 8rem 0; text-align: center; background: #fff; }
+        .final-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 0.5rem; line-height: 1.1; font-style: italic; }
+        .final-cta p.sub { color: #666; font-size: 1.1rem; margin-bottom: 2.5rem; }
+        .final-cta .btn-google img { height: 72px; }
+        .final-note { margin-top: 1.5rem; color: #999; font-size: 0.95rem; }
+
+        /* ── FOOTER ── */
+        footer { padding: 4rem 0; text-align: center; background: var(--dark); color: white; }
+        .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+        .footer-logo { font-weight: 800; font-size: 1.4rem; color: var(--accent); display: flex; align-items: center; gap: 0.5rem; }
+        .footer-logo img { height: 32px; }
         .footer-links { display: flex; gap: 2rem; list-style: none; }
-        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
-        .footer-links a:hover { color: var(--white); }
-        .footer-copy {
-            width: 100%; text-align: center; padding-top: 2rem; margin-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.9rem;
-        }
+        .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .footer-links a:hover { color: white; }
+        .footer-copy { color: rgba(255,255,255,0.3); font-size: 0.85rem; }
 
-        /* Responsive */
-        @media (max-width: 900px) {
-            .hero-content { grid-template-columns: 1fr; text-align: center; }
-            .hero-text p { margin-left: auto; margin-right: auto; }
-            .hero-buttons { justify-content: center; }
-            .nav-links { display: none; }
-            .phone-frame { width: 260px; }
-            .features-grid { grid-template-columns: 1fr; }
-            .deep-dive-item { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
-            .deep-dive-item.reverse { direction: ltr; }
-            .deep-dive-content { order: 2; }
-            .deep-dive-phone-container { order: 1; }
-            .deep-dive-features { justify-content: center; }
-            .recipe-counter { gap: 1rem; }
-            .counter-item { padding: 1rem 1.5rem; }
-            .counter-number { font-size: 2.5rem; }
+        /* ── SECTION DIVIDER ── */
+        .section-label {
+            text-align: center; margin-bottom: 1rem;
         }
-        @media (max-width: 600px) {
-            .hero { padding: 6rem 1rem 3rem; }
-            .phone-frame { width: 220px; }
-            .deep-dive-phone { width: 240px; }
-            .story-block { padding: 1.5rem; }
-            .footer-content { flex-direction: column; text-align: center; }
-            .footer-links { flex-wrap: wrap; justify-content: center; }
+        .section-label span {
+            display: inline-block; background: rgba(15,92,94,0.08);
+            color: var(--primary); padding: 0.4rem 1.2rem; border-radius: 50px;
+            font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+        }
+        .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+        .section-sub { text-align: center; color: #666; font-size: 1.05rem; max-width: 600px; margin: 0 auto 4rem; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 960px) {
+            .hero-layout, .flow-grid, .feature-layout, .bento-grid { grid-template-columns: 1fr; }
+            .feature-layout.flip { direction: ltr; }
+            h1 { font-size: 3rem; }
+            .phone-hero { display: none; }
+            .phone-wrap { flex-direction: column; align-items: center; }
+            .phone-frame.secondary { margin-top: 1rem; }
+            .bento-item.span2 { grid-column: span 1; }
+            .honest-card { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .why-section { border-radius: 40px 40px 0 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- NAV -->
     <nav id="navbar">
-        <div class="nav-content">
+        <div class="nav-inner">
             <a href="#" class="nav-logo">
-                <img src="images/logo.png" alt="VitaPlate nutrition tracking app logo">
+                <img src="images/logo.png" alt="VitaPlate">
                 <span>VitaPlate</span>
             </a>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
-                <li><a href="#deep-dive">App Preview</a></li>
-                <li><a href="#why-vitaplate">Why VitaPlate</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#workouts">Workouts</a></li>
+                <li><a href="#macros">Macro Calc</a></li>
+                <li><a href="#why">Why VitaPlate</a></li>
             </ul>
-            <a href="#download" class="nav-cta">Download App</a>
+            <a href="https://play.google.com/store/apps/details?id=com.jrochau.vitaplate" class="nav-dl" target="_blank" rel="noopener">Download Free</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- HERO -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Nutrition & Fitness, <span>Simplified</span></h1>
-                <p>Personalized meal plans, smart calorie tracking, macro logging, workout analytics, and a recipe macro calculator — all in one free Android app designed to help you reach your health goals.</p>
-                <div class="hero-buttons">
-                    <a href="https://play.google.com/store/apps/details?id=com.jrochau.vitaplate&pcampaignid=web_share"
-                       class="google-play-badge" target="_blank" rel="noopener noreferrer"
-                       aria-label="Download VitaPlate on Google Play">
-                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-                             alt="Get VitaPlate on Google Play">
-                    </a>
-                    <a href="#features" class="btn-secondary">Learn More</a>
+        <div class="container">
+            <div class="hero-layout">
+                <div class="hero-text">
+                    <div class="hero-eyebrow">🌿 100% Free &nbsp;·&nbsp; No Account &nbsp;·&nbsp; Fully Offline</div>
+                    <h1>Stop <em>Guessing.</em><br>Start Fueling.</h1>
+                    <div class="glass-cta">
+                        <p>The free nutrition app that learns your body's rhythm. Personalized plans, smart swaps, workout analytics, and a recipe macro calculator — zero friction.</p>
+                        <div class="hero-badges">
+                            <a href="https://play.google.com/store/apps/details?id=com.jrochau.vitaplate" class="btn-google" target="_blank" rel="noopener">
+                                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get VitaPlate on Google Play">
+                            </a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="hero-stat"><strong>400+</strong><span>Recipes</span></div>
+                            <div class="hero-stat"><strong>8</strong><span>Diet Filters</span></div>
+                            <div class="hero-stat"><strong>100%</strong><span>Free</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual" style="display:flex; justify-content:center;">
+                    <img src="images/home-screen.png" alt="VitaPlate App Home Screen" class="phone-hero">
                 </div>
             </div>
-            <div class="hero-phone">
-                <div class="phone-frame">
-                    <div class="phone-notch"></div>
-                    <div class="phone-screen">
-                        <img src="images/home-screen.png" alt="VitaPlate app home screen showing daily nutrition dashboard and meal plan">
+        </div>
+    </section>
+
+    <!-- ACTION FLOW -->
+    <section class="notifications-demo" id="features">
+        <div class="container">
+            <div class="flow-grid">
+                <div class="app-previews">
+                    <div class="app-action-card" style="transition-delay: 0.1s;">
+                        <div class="icon-circle" style="background:#e8f5e1; color:var(--accent);">📅</div>
+                        <div>
+                            <strong style="display:block; margin-bottom:2px;">8:00 AM · Plan Generated</strong>
+                            <span style="color:#666; font-size:0.95rem;">Your 7-day high-protein plan is ready.</span>
+                        </div>
+                    </div>
+                    <div class="app-action-card" style="transition-delay: 0.3s;">
+                        <div class="icon-circle" style="background:#fff3e0; color:var(--energy);">🥗</div>
+                        <div>
+                            <strong style="display:block; margin-bottom:2px;">12:30 PM · Smart Swap</strong>
+                            <span style="color:#666; font-size:0.95rem;">Not feeling Salmon? Swap for Chicken Pesto — 98% Match.</span>
+                        </div>
+                    </div>
+                    <div class="app-action-card" style="transition-delay: 0.5s;">
+                        <div class="icon-circle" style="background:#e3f2fd; color:#2196f3;">💪</div>
+                        <div>
+                            <strong style="display:block; margin-bottom:2px;">6:00 PM · Workout Logged</strong>
+                            <span style="color:#666; font-size:0.95rem;">Strength session recorded. Calorie budget updated.</span>
+                        </div>
+                    </div>
+                    <div class="app-action-card" style="transition-delay: 0.7s;">
+                        <div class="icon-circle" style="background:#f3e5f5; color:#9c27b0;">🧮</div>
+                        <div>
+                            <strong style="display:block; margin-bottom:2px;">Any Time · Macro Calc</strong>
+                            <span style="color:#666; font-size:0.95rem;">Paste a recipe. Get full macros per serving in seconds.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flow-text">
+                    <h2>It works as hard<br>as you do.</h2>
+                    <p>VitaPlate doesn't just list your food — it connects the dots. Log a workout and your calorie budget adjusts. Paste a recipe and instantly know exactly what you're eating. It's nutrition that adapts in real time.</p>
+                    <ul class="check-list">
+                        <li><span class="check">✔</span> 400+ Nutritionist-Verified Recipes</li>
+                        <li><span class="check">✔</span> Zero-Setup Macro Targets</li>
+                        <li><span class="check">✔</span> Smart Allergy &amp; Diet Filtering</li>
+                        <li><span class="check">✔</span> Workout Analytics &amp; Trends</li>
+                        <li><span class="check">✔</span> Recipe Macro Calculator</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEAL PLANNING -->
+    <section class="feature-section cream">
+        <div class="container">
+            <div class="feature-layout">
+                <div class="phone-wrap">
+                    <div class="phone-frame featured">
+                        <img src="images/meal-plan.png" alt="VitaPlate 7-day meal plan screen">
+                    </div>
+                </div>
+                <div class="feature-copy">
+                    <span class="feature-tag teal">Meal Planning</span>
+                    <h2 class="feature-h">Your Week,<br>Planned for You</h2>
+                    <p class="feature-p">Your personalized 7-day meal plan is generated based on your exact calorie needs, fitness goals, and dietary preferences. Each day includes breakfast, lunch, dinner, and snacks — all balanced to hit your macro targets without you doing any of the math.</p>
+                    <p class="feature-p">Don't like a suggestion? Tap any meal to instantly see smart swap alternatives ranked by compatibility score, so you always know how well each option fits your plan before you commit. Swap as many times as you want.</p>
+                    <p class="feature-p">VitaPlate also learns from your previous week's food log. If you consistently hit your targets, the next plan reinforces what's working. If you miss meals or go over calories, the recommendations adjust accordingly.</p>
+                    <div class="feature-chips">
+                        <span class="chip teal">📅 7-Day Plans</span>
+                        <span class="chip green">🔄 Instant Swaps</span>
+                        <span class="chip teal">⭐ Compatibility Scores</span>
+                        <span class="chip green">🎯 Goal-Aligned</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Overview Section -->
-    <section class="features" id="features">
-        <div class="section-header">
-            <span class="section-tag">Features</span>
-            <h2>Everything You Need to Succeed</h2>
-            <p>VitaPlate combines intelligent meal planning with comprehensive nutrition tracking, workout analytics, and a built-in macro calculator to make healthy eating effortless.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon teal">🍽️</div>
-                <h3>Smart Meal Plans</h3>
-                <p>Get personalized 7-day meal plans tailored to your calorie goals, dietary restrictions, and food preferences. Automatic adjustments based on your progress keep your nutrition plan on track.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon green">🔄</div>
-                <h3>Easy Meal Swaps</h3>
-                <p>Don't like a meal suggestion? Swap it instantly with smart alternatives that match your nutritional targets. Each option shows a compatibility score so you always stay within your macros.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon orange">📊</div>
-                <h3>Macro & Calorie Tracking</h3>
-                <p>Track your protein, carbs, fats, and fiber with beautiful visual progress bars. Stay on target with real-time calorie counter updates throughout the day.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon teal">🥗</div>
-                <h3>Recipe Database</h3>
-                <p>Access 300+ nutritious recipes with full ingredient lists, cooking instructions, and detailed macro breakdowns per serving — from high-protein meals to low-calorie options.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon green">💪</div>
-                <h3>Workout Logging & Calendar</h3>
-                <p>Log strength, HIIT, and cardio workouts and view your training history on a monthly calendar. Dots mark every day you trained so you can track consistency at a glance.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon orange">📈</div>
-                <h3>Workout Analytics</h3>
-                <p>Visualize your training progress with an interactive donut chart broken down by muscle group, plus time-series line graphs for volume, sets, reps, and duration across custom date ranges.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon teal">🧮</div>
-                <h3>Recipe Macro Calculator</h3>
-                <p>Paste any recipe's ingredient list and instantly get a full macro breakdown — calories, protein, carbs, fat, and fiber — per ingredient and per serving. Powered by USDA FoodData Central data.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon green">⚙️</div>
-                <h3>Dietary Restriction Filtering</h3>
-                <p>Set your allergies and dietary restrictions once. VitaPlate automatically filters out recipes containing gluten, dairy, nuts, and more — including vegan and vegetarian options.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Feature Deep-Dive Section -->
-    <section class="feature-deep-dive" id="deep-dive">
-        <div class="section-header">
-            <span class="section-tag">App Preview</span>
-            <h2>See VitaPlate in Action</h2>
-            <p>Discover how each feature works together to simplify your health journey — from meal planning to workout analytics and recipe macros.</p>
-        </div>
-
-        <!-- Deep Dive 1: Smart Meal Planning -->
-        <div class="deep-dive-item" data-typewriter="Your personalized 7-day meal plan is generated based on your exact calorie needs, fitness goals, and dietary preferences. Each day includes breakfast, lunch, dinner, and snacks — all balanced to hit your macro targets. Don't like a suggestion? Tap any meal to see smart swap alternatives with compatibility scores, so you always know how well each option fits your plan.">
-            <div class="deep-dive-phone-container">
-                <div class="deep-dive-phone">
-                    <div class="deep-dive-phone-notch"></div>
-                    <div class="deep-dive-phone-inner">
-                        <img src="images/meal-plan.png" alt="VitaPlate weekly meal plan screen showing 7-day personalized nutrition plan">
+    <!-- FOOD LOGGING -->
+    <section class="feature-section light">
+        <div class="container">
+            <div class="feature-layout flip">
+                <div class="phone-wrap">
+                    <div class="phone-frame featured">
+                        <img src="images/food-log.png" alt="VitaPlate food log and calorie tracking screen">
                     </div>
                 </div>
-            </div>
-            <div class="deep-dive-content">
-                <span class="deep-dive-tag">Meal Planning</span>
-                <h3>Your Week, Planned for You</h3>
-                <div class="typewriter-text"></div>
-                <div class="deep-dive-features">
-                    <span class="deep-dive-feature-tag">📅 7-Day Plans</span>
-                    <span class="deep-dive-feature-tag">🔄 Instant Swaps</span>
-                    <span class="deep-dive-feature-tag">⭐ Compatibility Scores</span>
-                    <span class="deep-dive-feature-tag">🎯 Goal-Aligned</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Deep Dive 2: Food Logging -->
-        <div class="deep-dive-item reverse" data-typewriter="Logging your meals has never been easier. Tap to add the exact meal from your 7-day plan directly to your daily food log — no searching required. Need to adjust portions? Fine-tune serving sizes by 0.5 increments to match exactly what you ate. The more accurately you log, the smarter your future meal recommendations become.">
-            <div class="deep-dive-phone-container">
-                <div class="deep-dive-phone">
-                    <div class="deep-dive-phone-notch"></div>
-                    <div class="deep-dive-phone-inner">
-                        <img src="images/food-log.png" alt="VitaPlate food log screen showing daily calorie and macro tracking">
+                <div class="feature-copy">
+                    <span class="feature-tag green">Food Logging</span>
+                    <h2 class="feature-h">Log Meals<br>in Seconds</h2>
+                    <p class="feature-p">Logging your meals has never been easier. Tap to add the exact meal from your 7-day plan directly to your daily food log — no searching required, no barcode scanning, no manual entry. It's already there waiting for you.</p>
+                    <p class="feature-p">Need to adjust portions? Fine-tune serving sizes in 0.5 increments to match exactly what you ate. The more accurately you log, the smarter your future meal recommendations become — VitaPlate analyzes your adherence patterns from the previous week to suggest more appropriate meals going forward.</p>
+                    <p class="feature-p">Your daily totals update in real time. Calories, protein, carbs, fat, and fiber — all tracked with visual progress so you always know where you stand before the day is done.</p>
+                    <div class="feature-chips">
+                        <span class="chip teal">⚡ One-Tap Logging</span>
+                        <span class="chip green">📏 Adjustable Portions</span>
+                        <span class="chip orange">📈 Adaptive Learning</span>
                     </div>
-                </div>
-            </div>
-            <div class="deep-dive-content">
-                <span class="deep-dive-tag green">Food Logging</span>
-                <h3>Log Meals in Seconds</h3>
-                <div class="typewriter-text"></div>
-                <div class="deep-dive-features">
-                    <span class="deep-dive-feature-tag">⚡ One-Tap Logging</span>
-                    <span class="deep-dive-feature-tag">📏 Adjustable Portions</span>
-                    <span class="deep-dive-feature-tag">📈 Progress Tracking</span>
-                    <span class="deep-dive-feature-tag">🧠 Smart Recommendations</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Deep Dive 3: Workout Logging with Calendar -->
-        <div class="deep-dive-item" data-typewriter="VitaPlate connects your workouts directly to your nutrition. Log strength training, HIIT, or cardio sessions from a clean calendar view — dots mark every day you trained so you can see your consistency over the month at a glance. Tap any date to review or add a workout session. Your activity is factored into your daily calorie budget automatically.">
-            <div class="deep-dive-phone-container">
-                <div class="deep-dive-phone">
-                    <div class="deep-dive-phone-notch"></div>
-                    <div class="deep-dive-phone-inner">
-                        <img src="images/workoutLogWithAnalytics.png" alt="VitaPlate workout calendar screen showing monthly training history with activity dots">
-                    </div>
-                </div>
-            </div>
-            <div class="deep-dive-content">
-                <span class="deep-dive-tag orange">Workout Logging</span>
-                <h3>Nutrition Meets Fitness</h3>
-                <div class="typewriter-text"></div>
-                <div class="deep-dive-features">
-                    <span class="deep-dive-feature-tag">📅 Calendar View</span>
-                    <span class="deep-dive-feature-tag">🏋️ Strength / HIIT / Cardio</span>
-                    <span class="deep-dive-feature-tag">🔥 Calorie Adjustment</span>
-                    <span class="deep-dive-feature-tag">🍎 Smart Suggestions</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Deep Dive 4: Workout Analytics (NEW) -->
-        <div class="deep-dive-item reverse" data-typewriter="Dig into your training history with powerful analytics. The Breakdown tab shows a tappable donut chart of total volume lifted by muscle group — tap any arc to see the exact weight and percentage. Flip to the Workouts tab for interactive line graphs tracking volume, sets, reps, workouts, and duration over any time range from 1 month to all time. Filter by per-workout, per-week, per-month, or per-year granularity to spot trends in your training.">
-            <div class="deep-dive-phone-container">
-                <div class="deep-dive-phone">
-                    <div class="deep-dive-phone-notch"></div>
-                    <div class="deep-dive-phone-inner">
-                        <img src="images/analyticsScreen.png" alt="VitaPlate workout analytics screen showing donut chart of volume by muscle group">
-                    </div>
-                </div>
-            </div>
-            <div class="deep-dive-content">
-                <span class="deep-dive-tag orange">Workout Analytics</span>
-                <h3>Understand Your Training</h3>
-                <div class="typewriter-text"></div>
-                <div class="deep-dive-features">
-                    <span class="deep-dive-feature-tag">🍩 Volume by Muscle Group</span>
-                    <span class="deep-dive-feature-tag">📉 Trend Line Graphs</span>
-                    <span class="deep-dive-feature-tag">📆 Custom Date Ranges</span>
-                    <span class="deep-dive-feature-tag">🎯 5 Trackable Metrics</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Deep Dive 5: Macro Calculator Input (NEW) -->
-        <div class="deep-dive-item" data-typewriter="Found a recipe online or in a cookbook? Paste the ingredient list straight into the Macro Calculator and tap Parse & Calculate. VitaPlate reads each line, identifies the ingredient and quantity, and matches it against the USDA FoodData Central database. In seconds you get a per-ingredient macro breakdown — calories, protein, carbs, fat, and fiber — plus totals divided by however many servings the recipe makes.">
-            <div class="deep-dive-phone-container">
-                <div class="deep-dive-phone">
-                    <div class="deep-dive-phone-notch"></div>
-                    <div class="deep-dive-phone-inner">
-                        <img src="images/macroCalc.png" alt="VitaPlate macro calculator input screen showing pasted recipe ingredient list">
-                    </div>
-                </div>
-            </div>
-            <div class="deep-dive-content">
-                <span class="deep-dive-tag green">Macro Calculator</span>
-                <h3>Know Exactly What You're Eating</h3>
-                <div class="typewriter-text"></div>
-                <div class="deep-dive-features">
-                    <span class="deep-dive-feature-tag">📋 Paste Any Recipe</span>
-                    <span class="deep-dive-feature-tag">🧪 USDA Data</span>
-                    <span class="deep-dive-feature-tag">⚡ Instant Results</span>
-                    <span class="deep-dive-feature-tag">🍽️ Per-Serving Totals</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Deep Dive 6: Macro Calculator Results (NEW) -->
-        <div class="deep-dive-item reverse" data-typewriter="Once calculated, every ingredient is listed with its matched name, total weight, and individual macro chips — color-coded for calories, protein, carbs, fat, and fiber. Approximate matches are flagged so you can tap to correct them manually. Scroll to the bottom to see the full recipe total and a clean per-serving summary. The calculator also supports manual ingredient entry if you prefer to build a recipe from scratch.">
-            <div class="deep-dive-phone-container">
-                <div class="deep-dive-phone">
-                    <div class="deep-dive-phone-notch"></div>
-                    <div class="deep-dive-phone-inner">
-                        <img src="images/macroTotals.png" alt="VitaPlate macro calculator results showing per-serving and total recipe macros">
-                    </div>
-                </div>
-            </div>
-            <div class="deep-dive-content">
-                <span class="deep-dive-tag green">Macro Calculator</span>
-                <h3>Full Breakdown, Per Serving</h3>
-                <div class="typewriter-text"></div>
-                <div class="deep-dive-features">
-                    <span class="deep-dive-feature-tag">🎨 Color-Coded Chips</span>
-                    <span class="deep-dive-feature-tag">⚠️ Approximate Match Flags</span>
-                    <span class="deep-dive-feature-tag">✏️ Manual Entry Option</span>
-                    <span class="deep-dive-feature-tag">📊 Total + Per Serving</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Deep Dive 7: Profile & Goals -->
-        <div class="deep-dive-item" data-typewriter="Set up your profile once, and VitaPlate does the rest. Enter your body metrics, choose your goal (cutting, maintaining, or bulking), and specify any dietary restrictions or allergies. Your calorie and macro targets are calculated automatically. As you progress, the app learns from your previous week's adherence to suggest more appropriate meals.">
-            <div class="deep-dive-phone-container">
-                <div class="deep-dive-phone">
-                    <div class="deep-dive-phone-notch"></div>
-                    <div class="deep-dive-phone-inner">
-                        <img src="images/profile.png" alt="VitaPlate profile and goal setting screen for personalized nutrition targets">
-                    </div>
-                </div>
-            </div>
-            <div class="deep-dive-content">
-                <span class="deep-dive-tag">Personalization</span>
-                <h3>Tailored to You</h3>
-                <div class="typewriter-text"></div>
-                <div class="deep-dive-features">
-                    <span class="deep-dive-feature-tag">⚖️ Body Metrics</span>
-                    <span class="deep-dive-feature-tag">🎯 Goal Setting</span>
-                    <span class="deep-dive-feature-tag">🚫 Allergy Filtering</span>
-                    <span class="deep-dive-feature-tag">📈 Adaptive Learning</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Deep Dive 8: Live Demo -->
-        <div class="deep-dive-item reverse" data-typewriter="Watch VitaPlate in action. From setting up your profile to generating your first meal plan and logging a workout — see exactly how the app flows in real daily use.">
-            <div class="deep-dive-phone-container">
-                <div class="deep-dive-phone" id="demo-phone">
-                    <div class="deep-dive-phone-notch"></div>
-                    <div class="deep-dive-phone-inner">
-                        <video id="vitaplate-demo-video" class="deep-dive-video"
-                            src="images/vitaplate_demo.mp4" playsinline controls preload="metadata"
-                            aria-label="VitaPlate app walkthrough demo video">
-                        </video>
-                    </div>
-                </div>
-            </div>
-            <div class="deep-dive-content">
-                <span class="deep-dive-tag green">Full Walkthrough</span>
-                <h3>See It for Yourself</h3>
-                <div class="typewriter-text"></div>
-                <div class="deep-dive-features">
-                    <span class="deep-dive-feature-tag">▶️ Real App Footage</span>
-                    <span class="deep-dive-feature-tag">📱 Live Demo</span>
-                    <span class="deep-dive-feature-tag">🎯 End-to-End Flow</span>
-                    <span class="deep-dive-feature-tag">🔊 With Voiceover</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why VitaPlate Section -->
-    <section class="why-vitaplate" id="why-vitaplate">
-        <div class="why-vitaplate-content">
-            <div class="section-header">
-                <span class="section-tag">Why VitaPlate?</span>
-                <h2>Built for Real Life</h2>
-                <p>We understand that staying healthy shouldn't be another full-time job. VitaPlate is the nutrition app that works as hard as you do.</p>
-            </div>
-            <div class="story-block">
-                <h3>
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    The Problem We're Solving
-                </h3>
-                <p>Working out already requires dedication. But tracking macros, planning meals, and logging food? That's where most people give up. Paper journals get lost. Spreadsheets become tedious. Generic calorie counter apps don't understand <em>your</em> goals.</p>
-                <p>VitaPlate was built to <span class="story-highlight">remove the friction from healthy eating</span> so you can focus on actually living your life — while still making progress toward your fitness and nutrition goals.</p>
-            </div>
-            <div class="story-block">
-                <h3>
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-                    Smart Algorithms, Not Guesswork
-                </h3>
-                <p>Our meal recommendation engine works behind the scenes to connect the dots between your diet and your workouts. When you log your meals and exercises, we analyze your <span class="story-highlight">adherence patterns from the previous week</span> to determine more appropriate meals for the coming week.</p>
-                <p>Consistently over your calorie target? We'll suggest lighter, lower-calorie options. Need more protein after strength training? We'll prioritize high-protein recipes. The better you log, the smarter VitaPlate becomes.</p>
-            </div>
-            <div class="story-block">
-                <h3>
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
-                    Know Exactly What You're Cooking
-                </h3>
-                <p>The <span class="story-highlight">Macro Calculator</span> lets you paste any recipe's ingredient list and instantly see the full nutritional breakdown — per ingredient and per serving. No more guessing whether that homemade meal fits your macros. Powered by USDA FoodData Central data, it handles cups, tablespoons, ounces, grams, and natural language quantities automatically.</p>
-                <p>Found a recipe on a food blog? Copy the ingredient list, paste it in, and know in seconds exactly what you're eating.</p>
-            </div>
-            <div class="recipe-counter">
-                <div class="counter-item">
-                    <div class="counter-number" data-target="300">0</div>
-                    <div class="counter-label">Recipes</div>
+    <!-- WORKOUT CALENDAR + ANALYTICS -->
+    <section class="feature-section dark" id="workouts">
+        <div class="container">
+            <div class="section-label" style="margin-bottom:0.75rem;"><span style="background:rgba(139,197,63,0.15); color:var(--accent);">Workout Tracking</span></div>
+            <h2 class="section-title" style="color:white; margin-bottom:0.75rem;">Train Smarter. Track Everything.</h2>
+            <p class="section-sub" style="color:rgba(255,255,255,0.6);">A calendar to track consistency, analytics to understand your training.</p>
+
+            <!-- Calendar row -->
+            <div class="feature-layout" style="margin-bottom: 5rem;">
+                <div class="feature-copy">
+                    <span class="feature-tag teal-inv">Calendar View</span>
+                    <h2 class="feature-h">See Your<br>Consistency</h2>
+                    <p class="feature-p">Every day you train gets a dot on the calendar. Open the Workouts screen and instantly see your entire training history laid out month by month — no scrolling through logs, no hunting for past sessions. Your consistency is visible at a glance.</p>
+                    <p class="feature-p">Log strength training, HIIT, and cardio sessions separately. Each workout type is tracked with its own metrics — exercises, sets, volume for strength; duration and calories for cardio. Tap any date to review a past session or add a new one.</p>
+                    <p class="feature-p">Every session you log feeds directly into your daily calorie budget, so your nutrition automatically adjusts around your training — not the other way around.</p>
+                    <div class="feature-chips">
+                        <span class="chip green">📅 Monthly Calendar</span>
+                        <span class="chip orange">🏋️ Strength / HIIT / Cardio</span>
+                        <span class="chip green">🔥 Calorie Integration</span>
+                    </div>
                 </div>
-                <div class="counter-item">
-                    <div class="counter-number" data-target="8">0</div>
-                    <div class="counter-label">Diet Filters</div>
-                </div>
-                <div class="counter-item">
-                    <div class="counter-number" data-target="5">0</div>
-                    <div class="counter-label">Analytics Metrics</div>
+                <div class="phone-wrap">
+                    <div class="phone-frame featured dark-bg">
+                        <img src="images/workoutLogWithAnalytics.png" alt="VitaPlate workout calendar with training dots">
+                    </div>
                 </div>
             </div>
-            <div class="honest-note">
-                <h4>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                    A Note on Dietary Restrictions
-                </h4>
-                <p>We currently have <strong>300 recipes</strong> in our database. While this covers most users well, please understand that adding multiple dietary restrictions (vegan + gluten-free + nut-free, for example) will significantly limit your meal options. In some cases, a full 7-day plan may not be possible. We'll be adding more recipes regularly to better serve users with complex dietary needs.</p>
+
+            <!-- Analytics row -->
+            <div class="feature-layout flip">
+                <div class="phone-wrap">
+                    <div class="phone-frame primary dark-bg">
+                        <img src="images/analyticsScreen.png" alt="VitaPlate workout analytics donut chart by muscle group">
+                    </div>
+                    <div class="phone-frame secondary dark-bg">
+                        <img src="images/graphAnalytics.png" alt="VitaPlate workout volume line graph over time">
+                    </div>
+                </div>
+                <div class="feature-copy">
+                    <span class="feature-tag teal-inv">Analytics</span>
+                    <h2 class="feature-h">Understand<br>Your Training</h2>
+                    <p class="feature-p">The Breakdown tab shows a tappable donut chart of your total volume lifted broken down by muscle group — tap any arc to see the exact weight and percentage that category represents. Legs, chest, back, arms, shoulders, all tracked across your entire history.</p>
+                    <p class="feature-p">Flip to the Workouts tab for interactive line graphs. Track volume, sets, reps, total workouts, and session duration as trend lines over any date range — 1 month, 3 months, 6 months, 1 year, or all time. Filter by per-workout, per-week, per-month, or per-year granularity to spot exactly where your progress is trending.</p>
+                    <p class="feature-p">Your all-time stats — total workouts, total volume lifted, total sets, and total cardio time — are always visible at the top of the screen so you never lose sight of how far you've come.</p>
+                    <div class="feature-chips">
+                        <span class="chip green">🍩 Volume by Muscle Group</span>
+                        <span class="chip orange">📉 Trend Line Graphs</span>
+                        <span class="chip green">📆 Custom Date Ranges</span>
+                        <span class="chip orange">🎯 5 Trackable Metrics</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="section-header">
-            <span class="section-tag">Getting Started</span>
-            <h2>How VitaPlate Works</h2>
-            <p>Start your nutrition and fitness journey in three simple steps.</p>
-        </div>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Set Your Goals</h3>
-                <p>Enter your profile details, choose your fitness goal (cut, maintain, or bulk), and set any dietary restrictions or food allergies. VitaPlate calculates your personalized calorie and macro targets automatically.</p>
+    <!-- MACRO CALCULATOR -->
+    <section class="feature-section light" id="macros">
+        <div class="container">
+            <div class="section-label"><span>Macro Calculator</span></div>
+            <h2 class="section-title">Know Exactly What You're Cooking</h2>
+            <p class="section-sub">Paste any recipe's ingredient list and get a full macro breakdown — per ingredient and per serving — in seconds.</p>
+
+            <div class="feature-layout" style="margin-bottom: 5rem;">
+                <div class="phone-wrap">
+                    <div class="phone-frame featured">
+                        <img src="images/macroCalc.png" alt="VitaPlate macro calculator input screen with pasted recipe">
+                    </div>
+                </div>
+                <div class="feature-copy">
+                    <span class="feature-tag orange">Step 1 · Input</span>
+                    <h2 class="feature-h">Paste Any<br>Ingredient List</h2>
+                    <p class="feature-p">Found a recipe online or in a cookbook? Copy the ingredient list, paste it straight into the Macro Calculator, set how many servings the recipe makes, and tap Parse &amp; Calculate. VitaPlate reads every single line — identifying the ingredient name, quantity, and unit automatically.</p>
+                    <p class="feature-p">It handles cups, tablespoons, teaspoons, ounces, grams, and natural language quantities like "handful", "2 strips", or "1 cup (5 oz)". No formatting required — just paste what the recipe says and let the calculator do the work.</p>
+                    <p class="feature-p">Prefer to build a recipe from scratch? You can also add ingredients one by one using the manual entry fields with a dropdown unit selector. Mix and match paste and manual entries in the same calculation.</p>
+                    <div class="feature-chips">
+                        <span class="chip orange">📋 Paste Any Recipe</span>
+                        <span class="chip teal">⚡ Auto-Parse</span>
+                        <span class="chip orange">✏️ Manual Entry Option</span>
+                    </div>
+                </div>
             </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Get Your Plan</h3>
-                <p>VitaPlate generates a personalized 7-day meal plan with balanced nutrition tailored to your exact calorie and macro needs — including breakfast, lunch, dinner, and snacks.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Track & Achieve</h3>
-                <p>Log your meals and workouts, swap meals you don't like, use the macro calculator to analyze any recipe, and watch the app learn from your habits to make smarter nutrition suggestions each week.</p>
+
+            <div class="feature-layout flip">
+                <div class="phone-wrap">
+                    <div class="phone-frame primary">
+                        <img src="images/macroBreakdown.png" alt="VitaPlate macro calculator per-ingredient breakdown">
+                    </div>
+                    <div class="phone-frame secondary">
+                        <img src="images/macroTotals.png" alt="VitaPlate macro calculator per-serving totals">
+                    </div>
+                </div>
+                <div class="feature-copy">
+                    <span class="feature-tag orange">Step 2 · Results</span>
+                    <h2 class="feature-h">Full Breakdown,<br>Per Serving</h2>
+                    <p class="feature-p">Once calculated, every ingredient is listed with its matched name, total weight in grams, and individual color-coded macro chips — orange for calories, blue for protein, orange-amber for carbs, red for fat, and green for fiber. Every number is per the quantity you specified.</p>
+                    <p class="feature-p">Approximate matches are flagged with a warning icon so you can tap directly on the ingredient name to correct it if the automatic match wasn't quite right. Confidence in your numbers matters.</p>
+                    <p class="feature-p">Scroll to the bottom for the full recipe totals and a clean per-serving breakdown divided by however many servings you set. All data sourced from USDA FoodData Central — the same database used by nutrition professionals and researchers.</p>
+                    <div class="feature-chips">
+                        <span class="chip orange">🎨 Color-Coded Chips</span>
+                        <span class="chip teal">⚠️ Approximate Match Flags</span>
+                        <span class="chip orange">🍽️ Per Serving + Total</span>
+                        <span class="chip teal">🧪 USDA Data</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA / Download Section -->
-    <section class="cta" id="download">
-        <div class="cta-content">
-            <h2>Ready to Transform Your Nutrition?</h2>
-            <p>Download VitaPlate free on Android and start your personalized meal plan today.</p>
-            <div class="cta-badges">
-                <a href="https://play.google.com/store/apps/details?id=com.jrochau.vitaplate&pcampaignid=web_share"
-                   class="cta-google-play-badge" target="_blank" rel="noopener noreferrer"
-                   aria-label="Download VitaPlate free on Google Play Store">
-                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-                         alt="Get VitaPlate - Nutrition & Fitness Tracker on Google Play">
-                </a>
+    <!-- WHY VITAPLATE BENTO -->
+    <section class="why-section" id="why">
+        <div class="container">
+            <div class="story-header">
+                <h2>Built for the <em>dedicated.</em></h2>
+                <p>We removed the tedious math so you can focus on the movement. VitaPlate is a direct response to paper journals, broken spreadsheets, and generic calorie apps that don't understand your goals.</p>
             </div>
-            <p class="cta-subtext">Free to download. Available now on Android.</p>
+
+            <div class="bento-grid">
+                <div class="bento-item">
+                    <h3>The Algorithm</h3>
+                    <p>Our engine analyzes your previous week's adherence patterns. Consistently over your calorie limit? We suggest lighter, nutrient-dense options. Hitting strength goals? We prioritize high-protein recipes. The better you log, the smarter VitaPlate becomes.</p>
+                </div>
+                <div class="bento-item">
+                    <h3 style="color:var(--accent);">No Guessing</h3>
+                    <p>Compatibility scores show you exactly how a meal fits your macros before you cook it. Every swap is ranked.</p>
+                </div>
+                <div class="bento-item span2">
+                    <h3>400+ Chef-Verified Recipes</h3>
+                    <p>From 15-minute quick lunches to elaborate high-protein dinners. Every single recipe comes with a precise macro breakdown verified by our data central. And we aren't stopping there — new recipes are added <strong>every single week.</strong></p>
+                </div>
+            </div>
+
+            <div class="honest-outer">
+                <div class="honest-card">
+                    <div class="honest-emoji">🌱</div>
+                    <div>
+                        <h4>The Evolution of Choice</h4>
+                        <p>We've officially crossed <strong>400+ recipes</strong> in our database. While we cover the vast majority of goals, we know that complex dietary needs (like Vegan + Gluten-Free) require variety. That's why we've launched our <strong>Weekly Recipe Initiative</strong> — manually adding new, precise options every seven days to ensure that no matter your restrictions, you always have a seat at the table.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- VIDEO DEMO -->
+    <section class="video-section">
+        <div class="container">
+            <div class="video-header">
+                <h2>See It for <em>Yourself</em></h2>
+                <p>A full walkthrough of VitaPlate in real daily use — from profile setup to meal planning, food logging, and workout tracking.</p>
+            </div>
+            <div class="video-phone-wrap">
+                <div class="video-phone">
+                    <video id="demo-video" src="images/vitaplate_demo.mp4" playsinline controls preload="metadata" aria-label="VitaPlate app walkthrough"></video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to crush<br>your goals?</h2>
+            <p class="sub">Free to download. No account. No ads. Just results.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.jrochau.vitaplate" class="btn-google" target="_blank" rel="noopener">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get VitaPlate on Google Play">
+            </a>
+            <p class="final-note">Available now on Android.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="images/logo.png" alt="VitaPlate">
-                <span>VitaPlate</span>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="VitaPlate">
+                    VitaPlate
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#workouts">Workouts</a></li>
+                    <li><a href="#macros">Macro Calc</a></li>
+                    <li><a href="#why">Why VitaPlate</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="mailto:jrochau@mail.com">Contact</a></li>
+                </ul>
+                <p class="footer-copy">© 2026 VitaPlate. All rights reserved. Made with 💚 for your health.</p>
             </div>
-            <ul class="footer-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#deep-dive">App Preview</a></li>
-                <li><a href="#why-vitaplate">Why VitaPlate</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="/cdn-cgi/l/email-protection#3a50485559525b4f7a575b535614595557">Contact</a></li>
-            </ul>
-            <p class="footer-copy">© 2025 VitaPlate. All rights reserved. Made with 💚 for your health.</p>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
+    <script>
+        // Nav scroll tint
         window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            document.getElementById('navbar').style.background =
+                window.scrollY > 60 ? 'rgba(7,42,43,0.98)' : 'rgba(7,42,43,0.92)';
         });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Demo video
-        const demoVideo = document.getElementById('vitaplate-demo-video');
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
-
-        // Deep Dive Items — populate text immediately on scroll, no typewriter animation
-        const deepDiveItems = document.querySelectorAll('.deep-dive-item');
-        const deepDiveObserver = new IntersectionObserver((entries) => {
+        // Action card reveal
+        const cardObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
-                    entry.target.classList.add('visible');
-                    const phone = entry.target.querySelector('.deep-dive-phone');
-                    if (phone) setTimeout(() => { phone.classList.add('flip'); }, 300);
-                    const typewriterElement = entry.target.querySelector('.typewriter-text');
-                    const text = entry.target.dataset.typewriter;
-                    if (typewriterElement && text) typewriterElement.textContent = text;
-                }
-                if (demoVideo && entry.target.contains(demoVideo)) {
-                    if (entry.isIntersecting) demoVideo.play().catch(() => {});
+                if (entry.isIntersecting) entry.target.classList.add('reveal');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.app-action-card').forEach(c => cardObserver.observe(c));
+
+        // Video autoplay when in view
+        const demoVideo = document.getElementById('demo-video');
+        if (demoVideo) {
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) demoVideo.play().catch(() => {});
                     else demoVideo.pause();
-                }
-            });
-        }, observerOptions);
-        deepDiveItems.forEach(item => deepDiveObserver.observe(item));
-
-        // Story blocks animation
-        const storyBlocks = document.querySelectorAll('.story-block');
-        const storyObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) setTimeout(() => { entry.target.classList.add('visible'); }, index * 200);
-            });
-        }, { threshold: 0.3 });
-        storyBlocks.forEach(block => storyObserver.observe(block));
-
-        // Counter animation
-        const counterNumbers = document.querySelectorAll('.counter-number');
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = parseInt(entry.target.dataset.target);
-                    let current = 0;
-                    const increment = target / 50;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            entry.target.textContent = target;
-                            clearInterval(timer);
-                        } else {
-                            entry.target.textContent = Math.floor(current);
-                        }
-                    }, 30);
-                    counterObserver.unobserve(entry.target);
-                }
+                });
+            }, { threshold: 0.3 });
+            videoObserver.observe(demoVideo);
+        }
+    </script>
+</body>
+</html>
